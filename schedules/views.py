@@ -12,7 +12,7 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
-class PostSingle(View):
+class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -24,7 +24,7 @@ class PostSingle(View):
 
         return render(
             request,
-            "single.html",
+            "post_detail.html",
             {
                 "post": post,
                 "comments": comments,
@@ -33,7 +33,7 @@ class PostSingle(View):
                 "comment_form": CommentForm()
             },
         )
-
+    
     def post(self, request, slug, *args, **kwargs):
 
         queryset = Post.objects.filter(status=1)
@@ -55,7 +55,7 @@ class PostSingle(View):
 
         return render(
             request,
-            "single.html",
+            "post_detail.html",
             {
                 "post": post,
                 "comments": comments,
@@ -67,7 +67,7 @@ class PostSingle(View):
 
 
 class PostLike(View):
-
+    
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
