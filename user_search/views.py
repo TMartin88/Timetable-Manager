@@ -1,9 +1,14 @@
 from django.shortcuts import render
-from .models import Post
+from django.views import generic, View
+from schedules.models import Post
+from django.db.models import Q
 
 
-class PostList(generic.ListView):
+class SearchResultsList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    context_object_name = "posts"
     template_name = "search_results.html"
-    paginate_by = 6
+
+    def get_queryset(self):
+        query = self.request.GET.get("q")
+        return Post.objects.filter(slug__search=query)
