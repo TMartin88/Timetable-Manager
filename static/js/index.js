@@ -18,20 +18,32 @@ function initMap() {
   // Add some markers to the map.
   const markers = locations.map((position, i) => {  
     const url = myURL[i];
-    console.log(position);
-    console.log(url);
+    const upperCaseurl = url.toUpperCase();
     const marker = new google.maps.Marker({
       position,
       map,
-      url,
+      upperCaseurl,
       icon: image,
-      title: "Routes",
+      title: "Click to Search Routes",
     });
 
     // markers can only be keyboard focusable when they have click listeners
     // open info window when marker is clicked
     marker.addListener("click", () => {
-      window.open(url);
+      const form = document.createElement("form");
+      form.action="/search/search/";
+      form.method="get"
+
+      const input = document.createElement("input");
+      input.type = "search";
+      input.name = "q";
+      input.value = myURL[i];
+      console.log(input.value);
+      form.appendChild(input);
+
+      document.body.appendChild(form);
+      form.submit();
+
     });
     return marker;
   });
@@ -68,36 +80,38 @@ const locations = [
 { lat: 51.933936, lng:   -8.561546 },  // Blarney
 { lat: 51.918478, lng:   -8.396795 },  // Glanmire
 { lat: 51.928124, lng:   -8.395253 },  // Riverstown
+{ lat: 51.644473, lng:   -8.584195 },  //Garretstown
 ];
 
 const myURL = 
 [  
-'https://locallinkcork.com/?s=bandon&post_types=schedule',
-'https://locallinkcork.com/?s=dunmanway&post_types=schedule',
-'https://locallinkcork.com/?s=skibbereen&post_types=schedule',
-'https://locallinkcork.com/?s=glengarriff&post_types=schedule',
-'https://locallinkcork.com/?s=schull&post_types=schedule',
-'https://locallinkcork.com/?s=baltimore&post_types=schedule',
-'https://locallinkcork.com/?s=clonakilty&post_types=schedule',
-'https://locallinkcork.com/?s=kinsale&post_types=schedule',
-'https://locallinkcork.com/?s=carrigaline&post_types=schedule',
-'https://locallinkcork.com/?s=cork%20city&post_types=schedule',
-'https://locallinkcork.com/?s=cobh&post_types=schedule',
-'https://locallinkcork.com/?s=midleton&post_types=schedule',
-'https://locallinkcork.com/?s=youghal&post_types=schedule',
-'https://locallinkcork.com/?s=fermoy&post_types=schedule',
-'https://locallinkcork.com/?s=mitchelstown&post_types=schedule',
-'https://locallinkcork.com/?s=castletownroche&post_types=schedule',
-'https://locallinkcork.com/?s=kildorrery&post_types=schedule',
-'https://locallinkcork.com/?s=charleville&post_types=schedule',
-'https://locallinkcork.com/?s=buttevant&post_types=schedule',
-'https://locallinkcork.com/?s=kanturk&post_types=schedule',
-'https://locallinkcork.com/?s=mallow&post_types=schedule',
-'https://locallinkcork.com/?s=macroom&post_types=schedule',
-'https://locallinkcork.com/?s=bantry&post_types=schedule', 
-'https://locallinkcork.com/?s=blarney&post_types=schedule',
-'https://locallinkcork.com/?s=glanmire&post_types=schedule',
-'https://locallinkcork.com/?s=riverstown&post_types=schedule',
+'bandon',
+'dunmanway',
+'skibbereen',
+'glengarriff',
+'schull',
+'baltimore',
+'clonakilty',
+'kinsale',
+'carrigaline',
+'cork%20city',
+'cobh',
+'midleton',
+'youghal',
+'fermoy',
+'mitchelstown',
+'castletownroche',
+'kildorrery',
+'charleville',
+'buttevant',
+'kanturk',
+'mallow',
+'macroom',
+'bantry', 
+'blarney',
+'glanmire',
+'riverstown',
+'garretstown',
 ];
  
 window.initMap = initMap;
