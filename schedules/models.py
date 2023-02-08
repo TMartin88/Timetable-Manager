@@ -16,15 +16,15 @@ class Post(models.Model):
     timetable_pdf = CloudinaryField('pdf', default='placeholder')
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
-    notes = models.TextField()
-    fare_calculator = models.BooleanField()
-    change_direction = models.BooleanField()
-    other_fares = models.BooleanField()
-    leap_link = models.URLField()
-    go_app_link = models.URLField()
-    public_notes = models.TextField()
-    active_days = models.TextField()
+    content = models.TextField(blank=True)
+    notes = models.TextField(blank=True)
+    fare_calculator = models.BooleanField(default=False)
+    change_direction = models.BooleanField(default=False)
+    other_fares = models.BooleanField(default=False)
+    leap_link = models.URLField(blank=True)
+    go_app_link = models.URLField(blank=True)
+    public_notes = models.TextField(blank=True)
+    active_days = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
@@ -54,3 +54,17 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment {self.body} by {self.name}"
+
+
+class Urban(models.Model):
+    title = models.CharField(max_length=60, unique=True)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return self.title
