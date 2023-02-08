@@ -49,23 +49,170 @@ select {
   margin-left: 50px;
 }
 
+#detail-view {
+  margin-top: 120px;
+}
+
+#topresults {
+  margin-top: 120px;
+}
+
+
 /* 
  * Always set the map height explicitly to define the size of the div element
  * that contains the map. 
  */
  #map {
-    height: 60vh;
+    height: 65vh;
+    margin-top: 120px;
   }
   
-/* 
- * Always set the map height explicitly to define the size of the div element
- * that contains the map. 
+  /* 
+ * Social Media icon. 
  */
- #map {
-    height: 60vh;
-  }
-
   .card-body i{
-    font-size: 300%;
-    padding: 5%;
+    font-size: 350%;
+    font-weight: 600;
+}
+
+#socialsgap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 60px;
+}
+
+.fa-facebook {
+  color: #3B5998;
+}
+
+.fa-facebook {
+  transition: all .2s ease-in-out;
+}
+
+.fa-facebook:hover {
+  transform: scale(1.1);
+}
+
+.fa-instagram {
+  color: #3F729B;
+}
+
+.fa-instagram {
+  transition: all .2s ease-in-out;
+}
+
+.fa-instagram:hover {
+  transform: scale(1.1);
+}
+
+.fa-twitter-square {
+  color: #00ACEE;
+}
+
+.fa-twitter-square {
+  transition: all .2s ease-in-out;
+}
+
+.fa-twitter-square:hover {
+  transform: scale(1.1);
+}
+
+
+/* 
+ * Apply all table css
+ */
+
+table {
+  font-family: 'Signika', sans-serif;
+  margin-bottom: 2.5px;
+}
+
+.wp-block-table {
+        overflow-x: auto;
+        overflow-y: auto;
+      }
+      
+ .wp-block-table thead th {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+      }
+
+.tabletime {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#swappera {
+    margin-bottom: 25px;
+}
+
+#swappera th {
+    background-color: #ddd;
+}
+
+#swapperb {
+    margin-bottom: 25px;
+}
+
+#swapperb th {
+    background-color: #ddd;
+}
+
+/* The Table Header th */
+.tabletime th {
+  text-align: left;
+}
+
+.tabletime th:nth-child(n + 2) {
+    text-align: center;
+}
+
+/* The Table Stripes */
+.tabletime tr:nth-child(odd) td {
+  background-color: #ffff;
+}
+
+.tabletime tr:nth-child(even) td {
+  background-color: #f2f2f2;
+}
+
+.tabletime tr:hover {
+  background-color: #ddd;
+}
+
+/* The Table Rows and Header */
+.tabletime td {
+  display: table-cell;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+/* The Table First Column Fixed No Scroll */
+.tabletime tr td:nth-child(1) {
+  position: sticky;
+  position: -webkit-sticky;
+  left: 0;
+  z-index: 1;
+  font-weight: bold;
+  text-align: left;
+}
+
+/* This sets the thickness for specific column*/
+table .thickborder {
+  border-left: 2px double 	#54595F; 
+  border-right: 2px double 	#54595F; 
+}
+
+/* This sets the thickness for specific column left only*/
+table .thickleft {
+  border-left: 2px double 	#54595F; 
+}
+
+/* This sets the thickness for specific column right only*/
+table .thickright {
+  border-right: 2px double 	#54595F; 
 }

@@ -115,3 +115,60 @@ const myURL =
 ];
  
 window.initMap = initMap;
+
+function checkTableHeight()
+{
+    try
+    {
+    var elmnt = document.getElementById('swappera');
+    var tableHeight = elmnt.offsetHeight;
+    var viewHeight = window.innerHeight;
+    console.log(tableHeight)
+    if(tableHeight > viewHeight)
+    {
+        document.getElementById('swappera').style.height = "90vh";
+        document.getElementById('swapperb').style.height = "90vh";
+    }
+    } catch (error) {
+  console.error(error);
+  // expected output: ReferenceError: nonExistentFunction is not defined
+  // Note - error messages will vary depending on browser
+}
+}
+
+checkTableHeight();
+
+const swapper = document.getElementById('my_Direction');
+const swapper2 = document.getElementById('my_Direction2');
+
+let i = 0
+function swapDiv(event, elem) {
+    const topTable = document.getElementById('swappera');
+    const bottomTable= document.getElementById('swapperb');
+    if (i % 2 == 0) {
+        bottomTable.insertAdjacentElement("afterend",topTable);
+    } else {
+         topTable.insertAdjacentElement("afterend",bottomTable); 
+    }
+    i++
+  }
+  
+swapper.addEventListener("click", function(event) {
+    // The user has Clicked Swap. Now swap the tables and h2 header
+     event.preventDefault();
+     console.log("clicked");
+   swapDiv(event, swapper);
+  }); 
+  
+swapper2.addEventListener("click", function(event) {
+         try
+    {
+    // The user has Clicked Swap. Now swap the tables and h2 header
+     event.preventDefault();
+   swapDiv(event, swapper);
+    } catch (error) {
+  console.error(error);
+  // expected output: ReferenceError: nonExistentFunction is not defined
+  // Note - error messages will vary depending on browser
+}
+  });

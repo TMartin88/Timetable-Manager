@@ -1,29 +1,54 @@
 {% extends 'base.html' %} {% block content %}
 {% load crispy_forms_tags %}
 
-<div class="container">
-    <div class="card bg-light col">
+<div class="container" id="detail-view">
+  <div class="row">
+    <div class="card bg-light">
       <div class="card-header">
         <h1 class="post-title">{{ post.title }}</h1>
-        <!-- Post author goes before the | the post's created date goes after -->
-        <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+        <p class="days">{{ post.active_days }}</p>
       </div>
       <div class="card-body text-center">
+        {% if post.fare_calculator %}
+        <button class="btn btn-block btn-primary">Cash Fare Calculator</button>
+        {% endif %}
+        {% if post.change_direction %}
+        <button class="btn btn-block btn-primary" id ="my_Direction">Change Direction</button>
+        {% endif %}
         {{ post.content | safe }}
+        {% if post.change_direction %}
+        <button class="btn btn-block btn-primary" id ="my_Direction2">Change Direction</button>
+        {% endif %}
+        {% if post.fare_calculator %}
+        <button class="btn btn-block btn-primary">Cash Fare Calculator</button>
+        {% endif %}
       </div>
     </div>
-      
-    <div class="row">
-      <div class="col-sm-4">
-        <button class="btn btn-block btn-secondary">PDF Version</button>
-      </div>
-      <div class="col-sm-4">
-        <button class="btn btn-block btn-secondary">Search Results</button>
-      </div>
-      <div class="col-sm-4">
-        <button class="btn btn-block btn-secondary">New Search</button>
-      </div>
+  </div>
+  {% if post.other_fares %}
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <p>Cheaper Fares May Be Available via:</p>
+      <p><a href="{{ post.leap_link }}">Leap Card</a> | <a href="{{ post.go_app_link }}">TFI GO APP</a></p>
     </div>
+  </div>
+  {% endif %}
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <p>{{ post.public_notes }}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <button class="btn btn-block btn-secondary">PDF Version</button>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-block btn-secondary">Search Results</button>
+    </div>
+    <div class="col-sm-4">
+      <button class="btn btn-block btn-secondary">New Search</button>
+    </div>
+  </div>
 </div>
- 
-  {% endblock content %}
+
+{% endblock content %}
