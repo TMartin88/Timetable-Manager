@@ -116,6 +116,8 @@ const myURL =
  
 window.initMap = initMap;
 
+if (window.location.href.indexOf("post_detail") > -1) {
+
 function checkTableHeight()
 {
     try
@@ -172,3 +174,25 @@ swapper2.addEventListener("click", function(event) {
   // Note - error messages will vary depending on browser
 }
   });
+}
+
+  $(document).ready(function(){
+    $("#myInput").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
+/*
+  const getData = async () => {
+    const response = await fetch('/get_table_data/');
+    const data = await response.json();
+    console.log(data);
+    instance.updateData(data.data);
+  }
+  
+  getData();
+  */
+  

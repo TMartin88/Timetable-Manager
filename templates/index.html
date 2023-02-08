@@ -4,27 +4,33 @@
 
 {% include "map.html" %}
 
-<div class="container-fluid mt-3" id ="list-table">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-              <th>Route</th>
-              <th>Days</th>
-              <th>Likes</th>
-            </tr>
-          </thead>
-        <tbody>
-            {% for post in post_list %}
-            <tr>
-                <td><a href="{% url 'post_detail' post.slug  %}" class="post-link">
-                    {{ post.title }}
-                </a></td>
-                <td>{{ post.active_days }}</td>
-                <td><p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
-                    {{ post.number_of_likes }}</p></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<div class="container-fluid mt-3" id="list-table">
+  <h2>Filterable Table</h2>
+  <p>Type something in the input field to search the table for first names, last names or emails:</p>
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Route</th>
+        <th>Days</th>
+        <th>Likes</th>
+      </tr>
+    </thead>
+    <tbody id="myTable">
+      {% for post in post_list %}
+      <tr>
+        <td><a href="{% url 'post_detail' post.slug  %}" class="post-link">
+            {{ post.title }}
+          </a></td>
+        <td>{{ post.active_days }}</td>
+        <td>
+          <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
+            {{ post.number_of_likes }}</p>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 {%endblock%}
