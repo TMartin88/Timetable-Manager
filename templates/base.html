@@ -7,8 +7,10 @@
   <title>Timetable Search</title>
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -82,51 +84,89 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <h4>Follow Us</h4>
-          <p>
-            <a href="#">
-              <i class="fab fa-facebook-square fa-2x mr-3 text-primary"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-twitter-square fa-2x mr-3 text-primary"></i>
-            </a>
-            <a href="#">
-              <i class="fab fa-instagram fa-2x mr-3 text-primary"></i>
-            </a>
-          </p>
+  <footer>
+    <div class="container-fluid px-4">
+      <div class="card-deck row">
+        <div class="p-3 card bg-light col">
+          <div class="card-header">
+            <h4>Follow Us</h4>
+          </div>
+          <div class="card-body text-center">
+            <p>
+              <a href="https://www.facebook.com/Locallinkcork/" aria-label="Go to our facebook page (opens in new tab)"
+                target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/tfilocallinkcork/"
+                aria-label="Go to our instagram page (opens in new tab)" target="_blank" rel="noopener"><i
+                  class="fab fa-instagram"></i></a>
+                  <a href="https://twitter.com/locallinkcork?lang=en" aria-label="Go to our twitter page (opens in new tab)"
+                  target="_blank" rel="noopener"><i class="fab fa-twitter-square"></i></a>
+            </p>
+          </div>
+          <div class="card-body text-center">
+            <p>
+              Local Link Cork is a Registered Irish Charity<br>
+              No: 20053475 based in Fermoy and Bantry<br>
+            </p>
+            <p>
+              Local Link provides a combination of scheduled<br>
+              Public Transport services and door-to-door services.<br>
+            </p>
+          </div>
         </div>
-        <div class="col-lg-4 text-center">
-          <h4>Contact Us</h4>
-          <p>
-            123 Main St.<br>
-            Anytown, USA 12345<br>
-            <a href="tel:1-555-555-5555">(555) 555-5555</a><br>
-            <a href="mailto:info@example.com">info@example.com</a>
-          </p>
+        <div class="p-3 card bg-light col">
+          <div class="card-header ">
+            <h4>Contact Us</h4>
+          </div>
+          <div class="card-body text-center">
+            <h5>BANTRY OFFICE</h5>
+            <p>
+              12 Barrack St.<br>
+              Bantry, Co.Cork<br>
+              P75 H429<br>
+              <a href="tel:3532752727">+353 27 52727</a><br>
+              <a href="mailto:info@locallinkcork.ie">info@locallinkcork.ie</a>
+          </div>
+          <div class="card-body text-center">
+            <h5>FERMOY OFFICE</h5>
+            <p>
+              Council Offices<br>
+              Courthouse Road<br>
+              Fermoy Co. Cork<br>
+              P61 AW63<br>
+              <a href="tel:3532551454">+353 25-51454</a><br>
+              <a href="mailto:info@locallinkcork.ie">info@locallinkcork.ie</a>
+            </p>
+          </div>     
         </div>
-        <div class="col-lg-4">
-          <h4>Our Partners</h4>
-          <p>
-            <img src="https://res.cloudinary.com/dxbarumnj/image/upload/v1675442962/tfilogo_akzu1l.png" alt="logo1"
-              class="mr-3">
-            <img src="https://res.cloudinary.com/dxbarumnj/image/upload/v1675442959/ntalogo_ba4zv9.png" alt="logo2">
-          </p>
+        <div class="p-3 card bg-light col">
+          <div class="card-header">
+           <h4>Our Partners</h4>
+          </div>
+          <div class="card-body text-center">
+            <p>
+              <img src="https://res.cloudinary.com/dxbarumnj/image/upload/v1675442962/tfilogo_akzu1l.png" alt="logo1"
+                class="mr-3">
+            </p>
+          </div>
+          <div class="card-body text-center">
+            <p>
+              <img src="https://res.cloudinary.com/dxbarumnj/image/upload/v1675442959/ntalogo_ba4zv9.png" alt="logo2">
+            </p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="row mt-3">
-      <div class="col-lg-4">
-        <p class="text-left">&copy; Copyright All Rights Reserved</p>
-      </div>
-      <div class="col-lg-4 text-center">
-        <p>Terms of Use</p>
-      </div>
-      <div class="col-lg-4">
-        <p class="text-right">Privacy Statement</p>
+    <div class="container-fluid"> 
+      <div class="row row-no-gutters">
+        <div class="col-lg-4 text-center"">
+          <p>&copy; Copyright All Rights Reserved</p>
+        </div>
+        <div class=" col-lg-4 text-center">
+          <p>Terms of Use</p>
+        </div>
+        <div class="col-lg-4 text-center">
+          <p id="privacynote">Privacy Statement</p>
+        </div>
       </div>
     </div>
   </footer>
