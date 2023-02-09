@@ -28,6 +28,10 @@
             {{ post.number_of_likes }}</p>
         </td>
       </tr>
+      {% empty %}
+      <tr>
+        <td>No Routes have been set up yet!</td>
+      </tr>
       {% endfor %}
     </tbody>
   </table>

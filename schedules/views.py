@@ -77,18 +77,3 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
-
-class GetTableData(View):
-
-    def get(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
-        post_data = {
-            "title": post.title,
-            "content": post.content,
-            "days": post.active_days,
-            "likes_count": post.likes.count(),
-        }
-
-        return JsonResponse({"post_data": post_data})

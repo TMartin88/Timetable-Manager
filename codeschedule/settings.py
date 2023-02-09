@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'schedules',
     'maps',
     'user_search',
+    'urban',
 ]
 
 SITE_ID = 1
