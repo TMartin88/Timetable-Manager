@@ -61,10 +61,10 @@ class Urban(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
+    approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["-created_on"]
 
     def __str__(self):
-        return self.title
+        return f"Urban {self.body} by {self.name}"
