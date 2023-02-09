@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Comment
+from .models import Post, Comment, Urban
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -21,4 +21,15 @@ class CommentAdmin(admin.ModelAdmin):
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
+        queryset.update(approved=True)
+
+
+@admin.register(Urban)
+class UrbanAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description', 'latitude', 'longitude', 'created_on', 'approved')
+    list_filter = ('approved', 'created_on')
+    search_fields = ('title', 'description')
+    actions = ['approve_urbans']
+
+    def approve_urbans(self, request, queryset):
         queryset.update(approved=True)
