@@ -85,7 +85,7 @@ class GetTableData(View):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         post_data = {
-            "title": post.title,           
+            "title": post.title,
             "content": post.content,
             "days": post.active_days,
             "likes_count": post.likes.count(),

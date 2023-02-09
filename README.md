@@ -112,5 +112,6 @@ Credits
 https://testdriven.io/blog/django-search/ for Basic and Full-text Search with Django and Postgres.
 I Think Therefore I Blog for the Post engine complete with likes and comments.
 https://www.w3schools.com/django/ for helpouts when I was stuck with problems.
+https://www.w3schools.com/bootstrap4/bootstrap_filters.asp for advanced filters on table.
 https://locallinkcork.com/ which is a wordpress implementation fully designed and developed by me.
 https://8000-tmartin88-dynamicmaps-u20krk5rr0r.ws-eu85.gitpod.io/ which is where I experiemented with google maps api.
