@@ -1,0 +1,14 @@
+{% block urban %}
+<div class="container urban-list-page" id="urban-edit">
+    <h1>Edit an Urban Centre</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
+            <p>
+                <button type="submit">Update Urban Centre</button>
+            </p>
+        </div>
+    </form>
+</div>
+{% endblock %}

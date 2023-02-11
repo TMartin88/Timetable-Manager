@@ -115,3 +115,4 @@ https://www.w3schools.com/django/ for helpouts when I was stuck with problems.
 https://www.w3schools.com/bootstrap4/bootstrap_filters.asp for advanced filters on table.
 https://locallinkcork.com/ which is a wordpress implementation fully designed and developed by me.
 https://8000-tmartin88-dynamicmaps-u20krk5rr0r.ws-eu85.gitpod.io/ which is where I experiemented with google maps api.
+https://learndjango.com/tutorials/django-slug-tutorial for assist in setting up new app.

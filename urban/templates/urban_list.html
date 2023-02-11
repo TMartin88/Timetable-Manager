@@ -1,0 +1,31 @@
+{% block urban %}
+<div class="container urban-list-page" id="urban-list">
+  <h1>Urban List</h1>
+  {% for urban in urbans %}
+  <table>
+    <tr>
+      <td>{{ urban.title }}</td>
+      <td>{{ urban.latitude }}</td>
+      <td>{{ urban.longitude }}</td>
+      <td<a href="edit/{{ urban.id }}">
+        <button>Edit</button>
+      </a>
+      </td>
+      <td<a href="toggle/{{ urban.id }}">
+        <button>Toggle</button>
+      </a>
+      </td>
+      <td<a href="delete/{{ urban.id }}">
+        <button>Delete</button>
+      </a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td>There are no Urban Centres Set Up yet</td>
+    </tr>
+  </table>
+  <a href="add">Add</a>
+  {% endfor %}
+</div>
+{% endblock %}

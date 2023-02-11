@@ -25,7 +25,7 @@ class PostDetail(View):
 
         return render(
             request,
-            "post_detail.html",
+            "schedules/post_detail.html",
             {
                 "post": post,
                 "comments": comments,

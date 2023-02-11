@@ -43,6 +43,9 @@
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
+            <a class="nav-link" href="{% url 'urban_list' %}">Urban Centres</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
           </li>
           {% else %}
@@ -76,10 +79,11 @@
   </div>
 
   <main class="flex-shrink-0 main-bg">
-
+  
     {% block content %}
     <!-- Content Goes here -->
     {% endblock content %}
+
   </main>
 
   <!-- Footer -->
