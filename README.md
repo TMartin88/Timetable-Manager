@@ -116,3 +116,4 @@ https://www.w3schools.com/bootstrap4/bootstrap_filters.asp for advanced filters 
 https://locallinkcork.com/ which is a wordpress implementation fully designed and developed by me.
 https://8000-tmartin88-dynamicmaps-u20krk5rr0r.ws-eu85.gitpod.io/ which is where I experiemented with google maps api.
 https://learndjango.com/tutorials/django-slug-tutorial for assist in setting up new app.
+https://stackoverflow.com/questions/70559902/django-how-do-i-set-a-default-value-in-a-form-to-be-the-current-user

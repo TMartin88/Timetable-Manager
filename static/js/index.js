@@ -61,116 +61,35 @@ function initMap() {
 
 }
 
-const locations = [{
-    lat: 51.746012,
-    lng: -8.734378
-  }, // Bandon
-  {
-    lat: 51.721879,
-    lng: -9.112725
-  }, // Dunmanway
-  {
-    lat: 51.550689,
-    lng: -9.270886
-  }, // Skibbereen
-  {
-    lat: 51.752312,
-    lng: -9.556771
-  }, // Glengarriff
-  {
-    lat: 51.526893,
-    lng: -9.549010
-  }, // Schull
-  {
-    lat: 51.484240,
-    lng: -9.364681
-  }, // Baltimore
-  {
-    lat: 51.620167,
-    lng: -8.894828
-  }, // Clonakilty
-  {
-    lat: 51.706548,
-    lng: -8.522314
-  }, // Kinsale
-  {
-    lat: 51.815790,
-    lng: -8.391598
-  }, // Carrigaline
-  {
-    lat: 51.900273,
-    lng: -8.469793
-  }, // Cork City
-  {
-    lat: 51.849244,
-    lng: -8.297357
-  }, // Cobh
-  {
-    lat: 51.913674,
-    lng: -8.171996
-  }, // Midleton
-  {
-    lat: 51.955069,
-    lng: -7.849503
-  }, // Youghal
-  {
-    lat: 52.137933,
-    lng: -8.275258
-  }, // Fermoy
-  {
-    lat: 52.265949,
-    lng: -8.270015
-  }, // Mitchelstown
-  {
-    lat: 52.173137,
-    lng: -8.463791
-  }, // Castletownroche
-  {
-    lat: 52.246113,
-    lng: -8.427172
-  }, // Kildorrerry
-  {
-    lat: 52.354566,
-    lng: -8.682920
-  }, // Charleville
-  {
-    lat: 52.231949,
-    lng: -8.670039
-  }, // Buttevant
-  {
-    lat: 52.177491,
-    lng: -8.903708
-  }, // Kanturk
-  {
-    lat: 52.135769,
-    lng: -8.647718
-  }, // Mallow
-  {
-    lat: 51.901325,
-    lng: -8.939089
-  }, // Macroom
-  {
-    lat: 51.680538,
-    lng: -9.448646
-  }, // Bantry
-  {
-    lat: 51.933936,
-    lng: -8.561546
-  }, // Blarney
-  {
-    lat: 51.918478,
-    lng: -8.396795
-  }, // Glanmire
-  {
-    lat: 51.928124,
-    lng: -8.395253
-  }, // Riverstown
-  {
-    lat: 51.644473,
-    lng: -8.584195
-  }, //Garretstown
-];
-
+const locations = [
+  { lat: 51.746012, lng:  -8.734378 },  // Bandon
+  { lat: 51.721879, lng:  -9.112725 },  // Dunmanway
+  { lat: 51.550689, lng:  -9.270886 },  // Skibbereen
+  { lat: 51.752312, lng:  -9.556771 },  // Glengarriff
+  { lat: 51.526893, lng:  -9.549010 },  // Schull
+  { lat: 51.484240, lng:  -9.364681 },  // Baltimore
+  { lat: 51.620167, lng:  -8.894828 },  // Clonakilty
+  { lat: 51.706548, lng:  -8.522314 },  // Kinsale
+  { lat: 51.815790, lng:  -8.391598 },  // Carrigaline
+  { lat: 51.900273, lng:  -8.469793 },  // Cork City
+  { lat: 51.849244, lng:  -8.297357 },  // Cobh
+  { lat: 51.913674, lng:  -8.171996 },  // Midleton
+  { lat: 51.955069, lng:  -7.849503 },  // Youghal
+  { lat: 52.137933, lng:  -8.275258 },  // Fermoy
+  { lat: 52.265949, lng:  -8.270015 },  // Mitchelstown
+  { lat: 52.173137, lng:  -8.463791 },  // Castletownroche
+  { lat: 52.246113, lng:  -8.427172 },  // Kildorrerry
+  { lat: 52.354566, lng:  -8.682920 },  // Charleville
+  { lat: 52.231949, lng:  -8.670039 },  // Buttevant
+  { lat: 52.177491, lng:  -8.903708 },  // Kanturk
+  { lat: 52.135769, lng:  -8.647718 },  // Mallow
+  { lat: 51.901325, lng:  -8.939089 },  // Macroom
+  { lat: 51.680538, lng:   -9.448646 },  // Bantry
+  { lat: 51.933936, lng:   -8.561546 },  // Blarney
+  { lat: 51.918478, lng:   -8.396795 },  // Glanmire
+  { lat: 51.928124, lng:   -8.395253 },  // Riverstown
+  ];
+  
 const myURL = [
   'bandon',
   'dunmanway',

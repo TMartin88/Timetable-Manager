@@ -1,7 +1,7 @@
 {% block urban %}
 <div class="container urban-list-page" id="urban-add">
     <h1>Add an Urban Centre</h1>
-    <form method="POST" action="add">
+    <form method="POST" action="{% url 'add' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <div>

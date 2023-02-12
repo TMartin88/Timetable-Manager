@@ -57,13 +57,10 @@ select {
   margin-top: 120px;
 }
 
-#urban-view {
-  margin-top: 120px;
+#urban-crud {
+  margin-top: 600px;
 }
 
-#urban-detail {
-  margin-top: 120px;
-}
 
 /* 
  * Always set the map height explicitly to define the size of the div element
