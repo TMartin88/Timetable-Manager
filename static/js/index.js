@@ -24,13 +24,16 @@ function initMap() {
   fetch('static/json/locations.json')
     .then(response => response.json())
     .then(data => {
+      console.log(data);
       // Filter the locations with showmap value "True"
-      const filteredLocations = data.locations.filter(location => location.showmap === "True");
+      const filteredLocations = data.locations.filter(location => location.showmap === true);
+      console.log(filteredLocations);
       // Pick up the locations
       const locations = filteredLocations.map(location => location.location);
       // Pick up the Place Names
       const urls = filteredLocations.map(location => location.name);
       const markers = locations.map((position, i) => {
+        
         const url = urls[i];
         const upperCaseurl = url.toUpperCase();
         const marker = new google.maps.Marker({

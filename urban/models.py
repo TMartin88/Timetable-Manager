@@ -2,6 +2,9 @@ from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from rest_framework import serializers
+from decimal import Decimal
+from .json import write_json
 
 
 class Urban(models.Model):
@@ -30,4 +33,29 @@ class Urban(models.Model):
     def save(self, *args, **kwargs):  # new
         if not self.slug:
             self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
+        super().save(*args, **kwargs)
+        urbans = Urban.objects.all()
+        prepare_for_json(urbans)
+
+
+class UrbanSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Urban
+        fields = ['title', 'latitude', 'longitude', 'showmap']
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        return {
+            "name": data['title'],
+            "location": {
+                "lat": float(data['latitude']),
+                "lng": float(data['longitude'])
+            },
+            "showmap": data['showmap']
+        }
+
+
+def prepare_for_json(urbans):
+    serializer = UrbanSerializer(urbans, many=True)
+    data = {"locations": serializer.data}
+    write_json(data)

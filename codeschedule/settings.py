@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'maps',
     'user_search',
     'urban',
+    'rest_framework',
 ]
 
 SITE_ID = 1

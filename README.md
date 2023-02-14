@@ -114,6 +114,7 @@ I Think Therefore I Blog for the Post engine complete with likes and comments.
 https://www.w3schools.com/django/ for helpouts when I was stuck with problems.
 https://www.w3schools.com/bootstrap4/bootstrap_filters.asp for advanced filters on table.
 https://locallinkcork.com/ which is a wordpress implementation fully designed and developed by me.
-https://8000-tmartin88-dynamicmaps-u20krk5rr0r.ws-eu85.gitpod.io/ which is where I experiemented with google maps api.
+https://8000-tmartin88-dynamicmaps-u20krk5rr0r.ws-eu85.gitpod.io/ which is where I experiemented with google maps api. https://github.com/TMartin88/dynamicmaps
 https://learndjango.com/tutorials/django-slug-tutorial for assist in setting up new app.
 https://stackoverflow.com/questions/70559902/django-how-do-i-set-a-default-value-in-a-form-to-be-the-current-user
+https://www.geeksforgeeks.org/how-to-create-and-use-signals-in-django/ and https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/master/checkout/signals.py for signals to update json file from model urban.

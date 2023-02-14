@@ -43,6 +43,7 @@ def toggle_urban(request, urban_id):
     urban = get_object_or_404(Urban, id=urban_id)
     urban.showmap = not urban.showmap
     urban.save()
+
     return redirect('urban_list')
 
 
