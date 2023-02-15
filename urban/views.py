@@ -4,7 +4,7 @@ from .forms import UrbanForm
 
 
 def list_urban(request):
-    urbans = Urban.objects.all()
+    urbans = Urban.objects.all().order_by('title').values()
     context = {
         'urbans': urbans
     }
