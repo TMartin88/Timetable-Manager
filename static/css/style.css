@@ -57,10 +57,11 @@ select {
   margin-top: 120px;
 }
 
-#urban-crud {
-  margin-top: 600px;
+.urban-list {
+  margin-top: 120px;
+  margin-bottom: 50px;
 }
-
+ 
 
 /* 
  * Always set the map height explicitly to define the size of the div element

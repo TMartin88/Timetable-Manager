@@ -1,14 +1,17 @@
-{% block urban %}
-<div class="container urban-list-page" id="urban-add">
+{% extends "list_urban.html" %}
+
+{% block content %}
+
+<div class="container urban-list" id="urban-add">
     <h1>Add an Urban Centre</h1>
     <form method="POST" action="{% url 'add' %}">
         {% csrf_token %}
         {{ form.as_p }}
-        <div>
-            <p>
-                <button type="submit">Add Urban Centre</button>
-            </p>
-        </div>
+        <div class="btn-group" role="group" aria-label="Add or Cancel">
+            <button class="btn btn-success" type="submit">Add Urban Centre</button>
+            <a href="{% url 'urban_list' %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Cancel</a>
+          </div>
     </form>
 </div>
-{% endblock %}
+
+{%endblock%}

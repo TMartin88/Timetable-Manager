@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Urban
+from .models import prepare_for_json
 from .forms import UrbanForm
 
 
@@ -50,4 +51,7 @@ def toggle_urban(request, urban_id):
 def delete_urban(request, urban_id):
     urban = get_object_or_404(Urban, id=urban_id)
     urban.delete()
+
+    prepare_for_json(Urban.objects.all())
+
     return redirect('urban_list')
