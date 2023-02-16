@@ -24,10 +24,8 @@ function initMap() {
   fetch('static/json/locations.json')
     .then(response => response.json())
     .then(data => {
-      console.log(data);
       // Filter the locations with showmap value "True"
       const filteredLocations = data.locations.filter(location => location.showmap === true);
-      console.log(filteredLocations);
       // Pick up the locations
       const locations = filteredLocations.map(location => location.location);
       // Pick up the Place Names
