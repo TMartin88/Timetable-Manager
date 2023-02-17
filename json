@@ -1,0 +1,7 @@
+{
+  "root": "static/",
+  "clean_urls": false,
+  "routes": {
+    "/static/**": "static/"
+  }
+}
