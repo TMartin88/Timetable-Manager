@@ -18,12 +18,22 @@ function initMap() {
   const labels = "";
   const image = "https://res.cloudinary.com/dxbarumnj/image/upload/v1675443108/departure_board_FILL0_wght400_GRAD0_opsz48_egf6hh.png";
 
-  // Construct the absolute path to the JSON file using the STATIC_URL setting
-  var jsonPath = "/static/json/locations.json";
+  // Set this flag to true if you want to fetch the data from the Django model
+  const fromModel = true;
+
+  // Define the URL for fetching the data from the Django model
+  //const modelUrl = '/api/urban/';
+  const modelUrl = '/maps/urban-locations/';
+
+  // Define the URL for fetching the data from the JSON file
+  const jsonUrl = '/static/json/locations.json';
+
+  // Get the data from the appropriate source
+  const fetchUrl = fromModel ? modelUrl : jsonUrl;
 
   // Get the data from the JSON file using absolute path
   try {
-    fetch(jsonPath)
+    fetch(fetchUrl)
       .then(function (response) {
         return response.json();
       })
