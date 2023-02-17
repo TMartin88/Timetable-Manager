@@ -1,6 +1,4 @@
-import {
-  MarkerClusterer
-} from "https://cdn.skypack.dev/@googlemaps/markerclusterer@2.0.3";
+import { MarkerClusterer } from "https://cdn.skypack.dev/@googlemaps/markerclusterer@2.0.3";
 
 let elem = document.getElementById("map");
 
@@ -15,60 +13,71 @@ function initMap() {
 
   const infoWindow = new google.maps.InfoWindow({
     content: "",
-
   });
 
   const labels = "";
   const image = "https://res.cloudinary.com/dxbarumnj/image/upload/v1675443108/departure_board_FILL0_wght400_GRAD0_opsz48_egf6hh.png";
-  // Get the data from the json file
-  fetch('../json/locations.json')
-    .then(response => response.json())
-    .then(data => {
-      // Filter the locations with showmap value "True"
-      const filteredLocations = data.locations.filter(location => location.showmap === true);
-      // Pick up the locations
-      const locations = filteredLocations.map(location => location.location);
-      // Pick up the Place Names
-      const urls = filteredLocations.map(location => location.name);
-      const markers = locations.map((position, i) => {
-        
-        const url = urls[i];
-        const upperCaseurl = url.toUpperCase();
-        const marker = new google.maps.Marker({
-          position,
-          map,
-          upperCaseurl,
-          icon: image,
-          title: "Click to Search Routes",
+
+  // Construct the absolute path to the JSON file using the STATIC_URL setting
+  var jsonPath = "/static/json/locations.json";
+
+  // Get the data from the JSON file using absolute path
+  try {
+    fetch(jsonPath)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        // Filter the locations with showmap value "True"
+        const filteredLocations = data.locations.filter(location => location.showmap === true);
+        // Pick up the locations
+        const locations = filteredLocations.map(location => location.location);
+        // Pick up the Place Names
+        const urls = filteredLocations.map(location => location.name);
+        const markers = locations.map((position, i) => {
+
+          const url = urls[i];
+          const upperCaseurl = url.toUpperCase();
+          const marker = new google.maps.Marker({
+            position,
+            map,
+            upperCaseurl,
+            icon: image,
+            title: "Click to Search Routes",
+          });
+
+          // markers can only be keyboard focusable when they have click listeners
+          // open info window when marker is clicked
+          marker.addListener("click", () => {
+            const form = document.createElement("form");
+            form.action = "/search/search/";
+            form.method = "get"
+
+            const input = document.createElement("input");
+            input.type = "search";
+            input.name = "q";
+            input.value = urls[i];
+            console.log(input.value);
+            form.appendChild(input);
+
+            document.body.appendChild(form);
+            form.submit();
+          });
+          return marker;
         });
 
-        // markers can only be keyboard focusable when they have click listeners
-        // open info window when marker is clicked
-        marker.addListener("click", () => {
-          const form = document.createElement("form");
-          form.action = "/search/search/";
-          form.method = "get"
-
-          const input = document.createElement("input");
-          input.type = "search";
-          input.name = "q";
-          input.value = urls[i];
-          console.log(input.value);
-          form.appendChild(input);
-
-          document.body.appendChild(form);
-          form.submit();
-
+        // Add a marker clusterer to manage the markers.
+        new MarkerClusterer({
+          markers,
+          map
         });
-        return marker;
+      })
+      .catch(function (error) {
+        console.error('Error fetching JSON file: ' + error);
       });
-
-      // Add a marker clusterer to manage the markers.
-      new MarkerClusterer({
-        markers,
-        map
-      });
-    });
+  } catch (error) {
+    console.error('Error fetching JSON file: ' + error);
+  }
 }
 
 window.initMap = initMap;
@@ -87,8 +96,6 @@ if (document.querySelector(".post-detail-page")) {
       }
     } catch (error) {
       console.error(error);
-      // expected output: ReferenceError: nonExistentFunction is not defined
-      // Note - error messages will vary depending on browser
     }
   }
 
