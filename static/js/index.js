@@ -21,7 +21,7 @@ function initMap() {
   const labels = "";
   const image = "https://res.cloudinary.com/dxbarumnj/image/upload/v1675443108/departure_board_FILL0_wght400_GRAD0_opsz48_egf6hh.png";
   // Get the data from the json file
-  fetch(window.location.href + 'static/json/locations.json')
+  fetch('../json/locations.json')
     .then(response => response.json())
     .then(data => {
       // Filter the locations with showmap value "True"
