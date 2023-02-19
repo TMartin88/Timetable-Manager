@@ -25,6 +25,8 @@ class Post(models.Model):
     go_app_link = models.URLField(blank=True)
     public_notes = models.TextField(blank=True)
     active_days = models.TextField(blank=True)
+    outbound = models.TimeField(blank=True)
+    inbound = models.TimeField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
