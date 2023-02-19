@@ -13,6 +13,8 @@
       <tr>
         <th>Route</th>
         <th>Days</th>
+        <th>Inbound</th>
+        <th>Outbound</th>
         <th>Likes</th>
       </tr>
     </thead>
@@ -23,12 +25,14 @@
             {{ post.title }}
           </a></td>
         <td>{{ post.active_days }}</td>
+        <td>{{ post.inbound }}</td>
+        <td>{{ post.outbound }}</td>
         <td>
-          <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
+          <p class="card-text text-muted h6"><i class="far fa-heart"></i>
             {{ post.number_of_likes }}</p>
         </td>
       </tr>
-      {% empty %}
+      {% empty %} 
       <tr>
         <td>No Routes have been set up yet!</td>
       </tr>
