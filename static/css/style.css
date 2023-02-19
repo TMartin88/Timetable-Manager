@@ -61,7 +61,18 @@ select {
   margin-top: 120px;
   margin-bottom: 50px;
 }
- 
+
+#singlehead {
+  margin-bottom: 10px;
+}
+
+#foots {
+  margin-top: 20px;
+}
+
+#copyright {
+  margin-top: 20px;
+}
 
 /* 
  * Always set the map height explicitly to define the size of the div element

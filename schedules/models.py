@@ -13,7 +13,7 @@ class Post(models.Model):
         User, on_delete=models.CASCADE, related_name="schedules_posts"
     )
     featured_image = CloudinaryField('image', default='placeholder')
-    timetable_pdf = CloudinaryField('pdf', default='placeholder')
+    timetable_pdf_url = models.URLField(blank=True)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField(blank=True)

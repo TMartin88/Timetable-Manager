@@ -2,25 +2,29 @@
 {% load crispy_forms_tags %}
 
 <div class="container post-detail-page" id="detail-view">
-  <div class="row">
+  <div class="row gy-5">
     <div class="card bg-light">
-      <div class="card-header">
+      <div class="card-header" id="singlehead">
         <h1 class="post-title">{{ post.title }}</h1>
         <p class="days">{{ post.active_days }}</p>
       </div>
-      <div class="card-body text-center">
+      <div class="card-title text-center">
         {% if post.fare_calculator %}
         <button class="btn btn-block btn-primary">Cash Fare Calculator</button>
         {% endif %}
         {% if post.change_direction %}
         <button class="btn btn-block btn-primary" id ="my_Direction">Change Direction</button>
         {% endif %}
+      </div>
+      <div class="card-body text-center">   
         {{ post.content | safe }}
-        {% if post.change_direction %}
-        <button class="btn btn-block btn-primary" id ="my_Direction2">Change Direction</button>
-        {% endif %}
+      </div>
+      <div class="card-title text-center">
         {% if post.fare_calculator %}
         <button class="btn btn-block btn-primary">Cash Fare Calculator</button>
+        {% endif %}
+        {% if post.change_direction %}
+        <button class="btn btn-block btn-primary" id ="my_Direction2">Change Direction</button>
         {% endif %}
       </div>
     </div>
@@ -29,7 +33,7 @@
   <div class="row">
     <div class="col-sm-12 text-center">
       <p>Cheaper Fares May Be Available via:</p>
-      <p><a href="{{ post.leap_link }}">Leap Card</a> | <a href="{{ post.go_app_link }}">TFI GO APP</a></p>
+      <p><a href="{{ post.leap_link }}" target="_blank">Leap Card</a> | <a href="{{ post.go_app_link }}" target="_blank">TFI GO APP</a></p>
     </div>
   </div>
   {% endif %}
@@ -38,15 +42,12 @@
       <p>{{ post.public_notes }}</p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <button class="btn btn-block btn-secondary">PDF Version</button>
+  <div class="row text-center">
+    <div class="col-sm-6 gy-5">
+      <a href=" {{ post.timetable_pdf_url }}" target="_blank" class="btn btn-block btn-secondary">PDF Version</a>
     </div>
-    <div class="col-sm-4">
-      <button class="btn btn-block btn-secondary">Search Results</button>
-    </div>
-    <div class="col-sm-4">
-      <button class="btn btn-block btn-secondary">New Search</button>
+    <div class="col-sm-6 gy-5">
+      <button class="btn btn-block btn-secondary" onclick="history.back()">Back</button>
     </div>
   </div>
 </div>

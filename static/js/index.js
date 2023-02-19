@@ -18,10 +18,10 @@ function createCenterControl(map) {
   controlButton.style.fontFamily = "Roboto,Arial,sans-serif";
   controlButton.style.fontSize = "16px";
   controlButton.style.lineHeight = "38px";
-  controlButton.style.margin = "8px 5px 22px 5px";
+  controlButton.style.margin = "8px 0 22px";
   controlButton.style.padding = "0 5px";
   controlButton.style.textAlign = "center";
-  controlButton.textContent = "Center Map";
+  controlButton.textContent = "Reset Map";
   controlButton.title = "Click to Reset Centre";
   controlButton.type = "button";
   // Setup the click event listeners: simply set the map to Chicago.
@@ -32,32 +32,42 @@ function createCenterControl(map) {
 }
 
 function createBusInfo(map) {
-  const controlButton2 = document.createElement("button");
+  const controlNote= document.createElement("button");
 
   // Set CSS for the control.
-  controlButton2.style.backgroundColor = "#fff";
-  controlButton2.style.border = "2px solid #fff";
-  controlButton2.style.borderRadius = "3px";
-  controlButton2.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
-  controlButton2.style.color = "rgb(25,25,25)";
-  controlButton2.style.cursor = "pointer";
-  controlButton2.style.fontFamily = "Roboto,Arial,sans-serif";
-  controlButton2.style.fontSize = "16px";
-  controlButton2.style.lineHeight = "38px";
-  controlButton2.style.margin = "8px 5px 22px 5px";
-  controlButton2.style.padding = "0 5px";
-  controlButton2.style.textAlign = "center";
-  controlButton2.textContent = "Click on a Bus icon to see all Routes for that place.";
-  controlButton2.title = "Click on Bus icon to see all Routes that begin, end or travel through that Urban Centre.";
-  controlButton2.type = "button";
-  
-  return controlButton2;
+  controlNote.style.backgroundColor = "#fff";
+  controlNote.style.border = "2px solid #fff";
+  controlNote.style.borderRadius = "3px";
+  controlNote.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+  controlNote.style.color = "rgb(25,25,25)";
+  controlNote.style.cursor = "pointer";
+  controlNote.style.fontFamily = "Roboto,Arial,sans-serif";
+  controlNote.style.fontSize = "16px";
+  controlNote.style.lineHeight = "38px";
+  controlNote.style.margin = "0 12px 12px 0";
+  controlNote.style.padding = "0 5px";
+  controlNote.style.textAlign = "center";
+  controlNote.textContent = "Click on a Bus Icon";
+  controlNote.title = "Click on Bus icon to see all Routes that begin, end or travel through that Urban Centre.";
+  controlNote.type = "description";
+
+  return controlNote;
 }
 
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 9,
     center: llcCentre,
+    scaleControl: true,
+    streetViewControl: true,
+    streetViewControlOptions: {
+      position: google.maps.ControlPosition.LEFT_TOP,
+    },
+    zoomControl: true,
+    zoomControlOptions: {
+      position: google.maps.ControlPosition.LEFT_TOP,
+    },
+    fullscreenControl: true,
   });
 
   // Create the DIVs to hold the controls.
@@ -69,15 +79,16 @@ function initMap() {
 
   // Create the DIV to hold the controls.
   const busInfoDiv = document.createElement("div");
+
   // Create the control.
   const busInfo = createBusInfo(map);
 
   // Append the control to the DIV.
   centerControlDiv.appendChild(centerControl);
-  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerControlDiv);
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
   busInfoDiv.appendChild(busInfo);
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(busInfoDiv);
+  map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(busInfoDiv);
 
   const infoWindow = new google.maps.InfoWindow({
     content: "",
