@@ -74,6 +74,11 @@ select {
   margin-top: 20px;
 }
 
+#messagebanner {
+  margin: 40px 0;
+}
+
+
 /* 
  * Always set the map height explicitly to define the size of the div element
  * that contains the map. 
