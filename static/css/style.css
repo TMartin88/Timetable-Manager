@@ -45,39 +45,17 @@ select {
   border-radius: 0 .25rem .25rem 0;
 }
 
-.navbar-nav {
-  margin-left: 50px;
-}
-
-#detail-view {
-  margin-top: 120px;
-}
-
-#topresults {
-  margin-top: 120px;
-}
-
-.urban-list {
-  margin-top: 120px;
-  margin-bottom: 50px;
-}
-
 #singlehead {
   margin-bottom: 10px;
 }
 
 #foots {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 #copyright {
   margin-top: 20px;
 }
-
-#messagebanner {
-  margin: 40px 0;
-}
-
 
 /* 
  * Always set the map height explicitly to define the size of the div element
@@ -85,7 +63,6 @@ select {
  */
  #map {
     height: 65vh;
-    margin-top: 120px;
   }
   
   /* 
