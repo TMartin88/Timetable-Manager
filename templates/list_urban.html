@@ -1,61 +1,62 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <div class="container-fluid mt-3" id="urban-list">
   <h1>Urban List</h1>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Urban Centre</th>
-        <th>Slug</th>
-        <th>Latitude</th>
-        <th>Longitude</th>
-        <th>Show On Map</th>
-      </tr>
-    </thead>
-    <tbody id="myTable">
-      {% for urban in urbans %}
-      <tr>
-        {% if urban.showmap %}
-        <td>{{ urban.title }}</td>
-        <td>{{ urban.slug }}</td>
-        <td>{{ urban.latitude }}</td>
-        <td>{{ urban.longitude }}</td>
-        {% else %}
-        <td><strike>{{ urban.title }}</strike></td>
-        <td><strike>{{ urban.slug }}</strike></td>
-        <td><strike>{{ urban.latitude }}</strike></td>
-        <td><strike>{{ urban.longitude }}</strike></td>
-        {% endif %}
-        <td>{{ urban.showmap }}</td>
-        <td>
-             <a href="{% url 'add' %}">
-              <button class="btn btn-block btn-primary">Add</button>
-             </a>
-        </td>
-        <td>
-          <a href="{% url 'edit' urban.id %}">
-            <button class="btn btn-block btn-primary">Edit</button>
-          </a>
-        </td>
-        <td>
-          <a href="{% url 'toggle' urban.id %}">
-            <button class="btn btn-block btn-primary">Toggle</button>
-          </a>
-        </td>
-        <td>
-          <a href="{% url 'delete' urban.id %}">
-            <button class="btn btn-block btn-primary">Delete</button>
-          </a>
-        </td>
-      </tr>
-      {% empty %}
-      <tr>
-        <td>There are no Urban Centres Set Up yet</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <figure id="swappera" class="wp-block-table">
+    <div style="overflow-x: auto;">
+      <table id="tabletimeA" class="tabletime">
+        <tbody>
+          <tr>
+            <th>Urban Centre</th>
+            <th>Slug</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Show On Map</th>
+          </tr>
+          {% for urban in urbans %}
+          <tr>
+            {% if urban.showmap %}
+            <td>{{ urban.title }}</td>
+            <td>{{ urban.slug }}</td>
+            <td>{{ urban.latitude }}</td>
+            <td>{{ urban.longitude }}</td>
+            {% else %}
+            <td><strike>{{ urban.title }}</strike></td>
+            <td><strike>{{ urban.slug }}</strike></td>
+            <td><strike>{{ urban.latitude }}</strike></td>
+            <td><strike>{{ urban.longitude }}</strike></td>
+            {% endif %}
+            <td>{{ urban.showmap }}</td>
+            <td>
+              <a href="{% url 'add' %}">
+                <button class="btn btn-block btn-primary">Add</button>
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'edit' urban.id %}">
+                <button class="btn btn-block btn-primary">Edit</button>
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'toggle' urban.id %}">
+                <button class="btn btn-block btn-primary">Toggle</button>
+              </a>
+            </td>
+            <td>
+              <a href="{% url 'delete' urban.id %}">
+                <button class="btn btn-block btn-primary">Delete</button>
+              </a>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td>There are no Urban Centres Set Up yet</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </figure>
 </div>
 {%endblock%}
