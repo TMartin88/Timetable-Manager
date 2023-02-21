@@ -12,4 +12,4 @@ class UrbanForm(forms.ModelForm):
 
     class Meta:
         model = Urban
-        fields = ('title', 'slug', 'author', 'latitude', 'longitude', 'showmap')
+        fields = ('title', 'author', 'latitude', 'longitude', 'showmap')

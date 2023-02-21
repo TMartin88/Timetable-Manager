@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Urban
 from .models import prepare_for_json
 from .forms import UrbanForm
+from django.utils.text import slugify
 
 
 def list_urban(request):
@@ -16,7 +17,9 @@ def add_urban(request):
     if request.method == 'POST':
         form = UrbanForm(request.POST, request=request)
         if form.is_valid():
-            form.save()
+            urban = form.save(commit=False)
+            urban.slug = slugify(urban.title)
+            urban.save()
             return redirect('urban_list')
     else:
         form = UrbanForm(request=request)
