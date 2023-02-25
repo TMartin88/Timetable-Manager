@@ -27,6 +27,7 @@ function createCenterControl(map) {
   // Setup the click event listeners: simply set the map to Chicago.
   controlButton.addEventListener("click", () => {
     map.setCenter(llcCentre);
+    map.setZoom(9);
   });
   return controlButton;
 }
