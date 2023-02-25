@@ -1,6 +1,12 @@
 import { MarkerClusterer } from "https://cdn.skypack.dev/@googlemaps/markerclusterer@2.0.3";
 
 let map;
+const LLC_BOUNDS = {
+  north: 52.754237,
+  south: 51.359833,
+  west: -11.181023,
+  east: -5.442101,
+};
 const llcCentre = { lat: 51.905797, lng: -8.952052 };
 
 let elem = document.getElementById("map");
@@ -59,6 +65,10 @@ function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 9,
     center: llcCentre,
+    restriction: {
+      latLngBounds: LLC_BOUNDS,
+      strictBounds: false,
+    },
     scaleControl: true,
     streetViewControl: true,
     streetViewControlOptions: {
