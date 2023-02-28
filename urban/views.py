@@ -3,14 +3,15 @@ from .models import Urban
 from .models import prepare_for_json
 from .forms import UrbanForm
 from django.utils.text import slugify
+from django.views import generic, View
 
 
-def list_urban(request):
-    urbans = Urban.objects.all().order_by('title').values()
-    context = {
-        'urbans': urbans
-    }
-    return render(request, 'list_urban.html', context)
+class UrbanList(generic.ListView):
+    model = Urban
+    template_name = 'list_urban.html'
+    context_object_name = 'urbans'
+    ordering = ['title']
+    paginate_by = 10
 
 
 def add_urban(request):

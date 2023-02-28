@@ -2,6 +2,8 @@
 
 
 **LLC** denotes Local Link Cork
+**Staff** denotes LLC Route & Timetable Management Staff
+**Commuters** denotes people travelling or wishing to travel on Routes
 
 ---------------------------
 
@@ -23,49 +25,39 @@ Schedule Manager is particularly useful for the Public as it feature dynamic sea
 Schedule Manager has 4 main apps:
 
 - Maps (maps)
-    This App sets up the data from model urban to be displayed as icons on Google Maps
+    This App sets up the data from model urban to be displayed as icons on Google Maps.
 - Schedules (schedules)
-    This is the App for Route Management using Posts where each Post is a Route
+    This is the App for Route Management using Posts where each Post is a Route.
 - Urban (urban)
-    This is the App for Urban Centre Management
+    This is the App for Urban Centre Management. Each Urban centre is an icon on the map.
 - User Search (user_search)
-    This is the App for the filter search on the Home Page
+    This is the App for the dynamic filter search on the Home Page and the Search in the Nav Bar.
 
 ------------------------------------
 
 Application           
-:--------------------------------------------------------------------------:
-![](assets/images/herokuinterface.webp)
+------------------------------------
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677353536/app_ziguur.jpg)
 
 ------------------------------------
 
 ### Motivation
 ---
 
-- Working part time with LLC and in association with Steve Ellis Operations Co-Ordinator of LLC we identified that staff prefer to work on Timetables in Excel.
-- These Excel timetables need to be controlled and managed.
-- These excel timetables need to be visible to the public.
-- Wordpress is the preferred platform to publish timetables for public viewing.
-
-The challenge is to take data stored in Excel files and bring them to the public through Wordpress.
-
-To do this we need to take Excel timetables and convert them to properly formatted HTML tables.
-
-The Users can then Copy and Paste the HTML into Custom posts on Wordpress.
-
-![](assets/images/excel.webp)
+- Working part time with LLC and in association with Steve Ellis Operations Co-Ordinator of LLC we can identify that we need to improve Timetable Management.
+- These Timetables need to be controlled and managed.
+- Staff prefer to work with Excel for Timetables edits.
+- These Timetables need to be visible to the public.
+- Wordpress was initially the preferred platform to publish timetables for public viewing but it is restricitive.
+- So developing something in a framework we can control is more suitable.
+- Django allows us to deploy to the Cloud which is a fast scaleable environment.
 
 ------------------------------------
 
-# GDPR and Google Sheets Data
+# GDPR and Timetable Data
 ---
 
 - Thanks to Steve Ellis Operations Co-Ordinator of LLC for permission to use timetable data.
-
-- The Sheets are Shared and visible to anyone with a link.
-
-- The Sheets are on my personal Google account and the data is not sensitive.
-
 - The Timetable data is already in the public domain.
 
 ------------------------------------
@@ -73,18 +65,38 @@ The Users can then Copy and Paste the HTML into Custom posts on Wordpress.
 ## User Stories
 ---
 
-- Users who have no programming skills need to be able to publish LLC timetables to the website.
-    - This application allows them to work without HTML or CSS skills, as the application makes the html for them, then using copy and paste skills they can publish to wordpress. The styling of the timetable is managed within the wordpress template design. 
-- Users prefer to work in a familiar environment when manipulating timetables.
-    - By using Excel and or Google Sheets the user can work with familiar interfaces.
-- Users need to be able to change Timetable data on a regular basis and get the results published without delay.
-    - The level of automation here minimises the time delay and allow the user to quickly publish to wordpress.
-- Users need to be able to redesign timetables like adding an extra column, or putting header text into 2 lines.
-    - Working with Google sheets and/or Excel allows the user to design or manipulate timetables to suit their needs.
-- Users need to be able to highlight certain columns to draw attention to detail.
-    - Users can highlight cells by using heavy green borders. These borders are picked up by the application by reading specified rules within designated cells. 
-- Users wish to avoid steep learning curves by being introduced to new systems.
-    - The Copy and Paste method to publish to the web is a concept they are already familiar with and the Excel and Google Sheets interaction is familiar to them .
+- Staff Users who have no programming skills need to be able to publish LLC routes and timetables so they are available to the public.
+    - This application allows them to work without HTML or CSS skills, as they have an application that makes the html for them, then using copy and paste skills they can publish to a post. The styling of the timetable is managed within the template design and style.css
+    - To assist this we created a seperate Python App to take Excel timetables loaded to Google Sheets and convert them to properly formatted HTML tables:
+        - https://timetable-sheets.herokuapp.com
+        - https://github.com/TMartin88/SheetTable
+
+    - **We will bring that Python Project into this project in the next phase of development.**
+
+- Staff Users need to be able to change Timetable data on a regular basis and get the results published without delay.
+    - The level of automation here minimises the time delay and allow the user to quickly publish to Timetable Manager.
+- Staff Users wish to avoid steep learning curves by being introduced to new systems.
+    - The Copy and Paste method to publish to the post content is a concept they are already familiar with.
+- Staff Users need to be able to manage icons on the Google Map.
+    - The Urban CRUD works well here. It is a simple interface so staff users canc ontrol where icons appear.
+- Staff Users need to provide additional information in relation to routes.
+    - The additional fields in Post model allow for this.
+- Staff users need to be able to provide PDF versiosn of the timetables.
+    - PDFs stires in LLC Dropbox are available for Commuters via the PDF button.
+
+- Commuters need to be able plan trips around LLC routes.
+    - Because all routes and associated timetables are published and maintained the commuter has up to date information.
+- Commuters need to be able to view more than 1 route at a time to make comparisons of suitability.
+    - The Routes are listed and can filtered to by a commuter to match their needs.
+- Commuters need an interactive way of searching for timetables.
+    - the Google Map allows the commuter to click an icon for an urban centre. This negates the need for using the keyboard.
+- Commuters need to be able to refine search results.
+    - The dynamic search table on the homepage allows for filtering by dates and times etc.
+    - The search in the nav bar allows for a search for timetable data including stops etc.
+- Commuter need to be able to view timetables on Mobile.
+    - The way the table is setup for scrolling x and y allows the commuter to easily navigate an individual timetable.
+- Commuters need to be able to Comment on Routes and click Likes etc. 
+    - The Comment Like functionality allows for this.
 
 --------------------------------
 
@@ -94,51 +106,149 @@ The Users can then Copy and Paste the HTML into Custom posts on Wordpress.
 
 ---------------------------
 
-This is a non GUI application.
+This is a GUI application which has been designed to work across all devices.
 
-![](assets/images/herokuapp.webp)
+Using the MVC framework enables the presentation of data in an efficient secure manner.
 
-The initial interaction with the user is a simple login like this:
+Bootstrap allows for seamless responsiveness.
 
-Please enter your username: admin
+Using an interactive Google Map with underlying API calls enhances the visual impact.
 
-Please enter your password: sesame
-
----------------------------
-
-Once logged in the user is presented with a Main Menu:
-
-![](assets/images/herokuinterface.webp)
-
----------------------------
-
-The user also has access to two Google Sheets:
-
-1. html_table_builder
-
-<mark>This is the Sheet that the Application interacts with</mark>
-
-![](assets/images/sheetblank.webp)
-
-
-2. Timetables
-
-<mark>This is the Sheet that Contains all the Timetable worksheets</mark>
-
-![](assets/images/timetables.webp)
-
-
-<mark>Note: Both Sheets have a Rules Tab which is for reference only</mark>
+The main Header Nav section is set as a sticky so the nav is always available and maintains the presence of the logo.
 
 ---------------------------
 
 ## Site Navigation
+
+### Main Menu
  
-Site navigation is by way of a Main Menu which is presented after User login.
+Site navigation is primarily by way of a Main Menu.
+
+Apart from 'Home' which is constant.
+
+The Nav is split into 2 main layouts:
+
+- Not Logged in
+    - Register
+    - Login
+
+- Logged in
+    - Urban Centres
+    - Admin
+    - Logout
+
+------------------------------
+
+- Non Logged in Users
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677583391/app_ziguur.jpg)
+
+Note the Menu only has Register and Login Options.
+
+- Logged in Users (SuperUser)
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677583100/admin_ttzvvd.jpg)
+
+Note the menu now has Urban Centres and Admin.
+
+- Logged in Users
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677582898/user_diquz2.jpg)
+
+Note Admin is not available to regular staff users.
+
+----------------------------------
+
+### Search Results Page
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677585347/result_tjuurr.jpg)
+
+This is a Filtered List of Routes set in Card Format which is arrived at from 3 main options:
+
+1. Search in Nav in Header
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677584835/search_w4fudn.jpg)
+
+2. The Google Map is a visual interactive Search option for Commuters on Home Page
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677583946/map_kqcmjx.jpg)
+
+3. The Dynamic Filter Search on Home Page
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677585139/table_gzb7g2.jpg)
+
+
+### Single Page
+
+This is a Single Route(Post_detail) page
+
+#### Timetable
+
+The timetable is usually presented in a 2 table presentation.
+
+- Inbound
+- Outbound
+
+The Site Visitor can toggle between the 2 with the Change Direction button.
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677586449/single_hw4dmk.jpg)
+
+#### Links to Cheaper Fares and The Mobile App
+
+This allows the Site Visitor to avail of cheaper fares and use advanced Journey planning in the App.
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677587181/other_olkv9k.jpg)
+
+#### PDF and Back Button
+
+There is a PDF button on this page to enable the Site Visitor to view or download a PDF version of the timetable.
+
+These is also a Back Button on this page to take a Site Visitor to a previous Page.
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677587175/pdf_uevcaf.jpg)
+
+#### Comments and Likes
+
+The Site Visitor can view Comments and Likes Count for this Route/Post
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677587188/comment_vmojhm.jpg)
+
+If the User is Logged in then they can Add Comments and Likes
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677588046/addcomment_ggwec3.jpg)
+
+### Urban Centres
+
+This is a CRUD for the Urban Centres.
+
+**The Urban Centres With Show On Map set to true appear on the Google Interactive Map**
+
+### Admin
+
+This is the Main Admin Panel.
+
+**The header and The Footer are not visible on this page as it is a Back End utility**
+
+### Footer
+
+This is the footer which always visible. This has links to:
+
+- Social media
+- Office contact links
+
+Partners are not links so as not to take site visitors away to other sites.
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677587184/footer_axwceh.jpg)
+
+-----------------------------------------------
+
+**Because the Header is sticky the Nav bar is always visible**
+
+----------------------------------------------------
 
 ## Responsive
  
-This non gui application is responsive and looks good on different device screen sizes.
+This gui application is responsive using Bootstrap and looks good on different device screen sizes.
 
 ![](assets/images/response.webp)
 
@@ -150,9 +260,16 @@ This non gui application is responsive and looks good on different device screen
 - Best viewed with 2 computer screens.
 - Open all links in a new tab.
 
-## Google Sheets
+## Admin
 
-### Timetables Sheet
+### Posts
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677595886/admin_xy6zky.jpg)
+
+
+
+
+
 
 [Open the Timetables on Screen 1](https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing)
 

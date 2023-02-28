@@ -5,11 +5,6 @@ from django.db.models import Q
 
 
 class SearchResultsList(generic.ListView):
-    '''
-    This is from https://testdriven.io/blog/django-search/ for the fancy search
-    and https://stackoverflow.com/questions/51631651/why-use-get-context-data-self-kwargs-and-super
-    for the context
-    '''
     model = Post
     context_object_name = "posts"
     template_name = "search_results.html"
