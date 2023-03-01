@@ -37,7 +37,7 @@ Schedule Manager has 4 main apps:
 
 Application           
 ------------------------------------
-![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677353536/app_ziguur.jpg)
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677615381/site_fsexbv.jpg)
 
 ------------------------------------
 
@@ -71,7 +71,7 @@ Application
         - https://timetable-sheets.herokuapp.com
         - https://github.com/TMartin88/SheetTable
 
-    - **We will bring that Python Project into this project in the next phase of development.**
+- **We will bring that Python Project into this project in the next phase of development.**
 
 - Staff Users need to be able to change Timetable data on a regular basis and get the results published without delay.
     - The level of automation here minimises the time delay and allow the user to quickly publish to Timetable Manager.
@@ -171,7 +171,7 @@ This is a Filtered List of Routes set in Card Format which is arrived at from 3 
 
 2. The Google Map is a visual interactive Search option for Commuters on Home Page
 
-![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677583946/map_kqcmjx.jpg)
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677615191/map_dcunfc.jpg)
 
 3. The Dynamic Filter Search on Home Page
 
@@ -191,7 +191,7 @@ The timetable is usually presented in a 2 table presentation.
 
 The Site Visitor can toggle between the 2 with the Change Direction button.
 
-![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677586449/single_hw4dmk.jpg)
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677615623/single_txqwjj.jpg)
 
 #### Links to Cheaper Fares and The Mobile App
 
@@ -205,7 +205,10 @@ There is a PDF button on this page to enable the Site Visitor to view or downloa
 
 These is also a Back Button on this page to take a Site Visitor to a previous Page.
 
-![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677587175/pdf_uevcaf.jpg)
+Page 1           |  Page 2
+:-----------------:|:-----------------:
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677615937/Page1_fphufa.jpg)  |  ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677615939/page2_cwlxnw.jpg)
+
 
 #### Comments and Likes
 
@@ -221,13 +224,19 @@ If the User is Logged in then they can Add Comments and Likes
 
 This is a CRUD for the Urban Centres.
 
-**The Urban Centres With Show On Map set to true appear on the Google Interactive Map**
+**The Urban Centres With "Show On Map" set to true appear on the Google Interactive Map**
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677616115/urban_xgp21l.jpg)
+
 
 ### Admin
 
 This is the Main Admin Panel.
 
 **The header and The Footer are not visible on this page as it is a Back End utility**
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677616240/admin_wrvwej.jpg)
+
 
 ### Footer
 
@@ -250,15 +259,11 @@ Partners are not links so as not to take site visitors away to other sites.
  
 This gui application is responsive using Bootstrap and looks good on different device screen sizes.
 
-![](assets/images/response.webp)
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677616512/responsive_swgo3h.jpg)
 
 --------------------------------
 
 # Project Walkthrough for User Testing
-
-**Recommended:**
-- Best viewed with 2 computer screens.
-- Open all links in a new tab.
 
 ## Admin
 
@@ -266,14 +271,13 @@ This gui application is responsive using Bootstrap and looks good on different d
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677595886/admin_xy6zky.jpg)
 
+- Add a new Post
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677619680/postpage1_btind3.jpg)
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677621027/postpage2_qkzkyl.jpg)
 
 
-
-
-
-[Open the Timetables on Screen 1](https://docs.google.com/spreadsheets/d/1jYRHNID-pMeB-0QicIMgrDnd4QONLxxHhUE7Rz6iz2s/edit?usp=sharing)
-
-![](assets/images/timetables.webp)
 
 The Timetables sheet contains the timetable information for all routes. There is a worksheet(tab) for every route. These worksheets(tabs) contain a cross section of timetable variations and types.
 

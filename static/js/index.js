@@ -24,7 +24,7 @@ function createCenterControl(map) {
   controlButton.style.fontFamily = "Roboto,Arial,sans-serif";
   controlButton.style.fontSize = "16px";
   controlButton.style.lineHeight = "38px";
-  controlButton.style.margin = "8px 0 22px";
+  controlButton.style.margin = "0 10px 10px 0";
   controlButton.style.padding = "0 5px";
   controlButton.style.textAlign = "center";
   controlButton.textContent = "Reset Map";
@@ -51,7 +51,7 @@ function createBusInfo(map) {
   controlNote.style.fontFamily = "Roboto,Arial,sans-serif";
   controlNote.style.fontSize = "16px";
   controlNote.style.lineHeight = "38px";
-  controlNote.style.margin = "0 12px 12px 0";
+  controlNote.style.margin = "0 10px 10px 0";
   controlNote.style.padding = "0 5px";
   controlNote.style.textAlign = "center";
   controlNote.textContent = "Click on a Bus Icon";
@@ -96,7 +96,7 @@ function initMap() {
 
   // Append the control to the DIV.
   centerControlDiv.appendChild(centerControl);
-  map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+  map.controls[google.maps.ControlPosition.RIGHT_TOP].push(centerControlDiv);
 
   busInfoDiv.appendChild(busInfo);
   map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(busInfoDiv);
