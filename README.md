@@ -4,10 +4,11 @@
 **LLC** denotes Local Link Cork
 **Staff** denotes LLC Route & Timetable Management Staff
 **Commuters** denotes people travelling or wishing to travel on Routes
+**Routes** are often known as Services or Schedules.
 
 ---------------------------
 
-## Site Goals
+# Site Goals
 ---
 
 Schedule Manager is an application developed in Django for LLC Timetable and Route Management staff.
@@ -35,13 +36,14 @@ Schedule Manager has 4 main apps:
 
 ------------------------------------
 
-Application           
-------------------------------------
+# Application           
+---
+
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677615381/site_fsexbv.jpg)
 
 ------------------------------------
 
-### Motivation
+# Motivation
 ---
 
 - Working part time with LLC and in association with Steve Ellis Operations Co-Ordinator of LLC we can identify that we need to improve Timetable Management.
@@ -62,7 +64,7 @@ Application
 
 ------------------------------------
 
-## User Stories
+# User Stories
 ---
 
 - Staff Users who have no programming skills need to be able to publish LLC routes and timetables so they are available to the public.
@@ -101,10 +103,10 @@ Application
 --------------------------------
 
 # UX/UI & Features
+---
 
 ## Design Choices
-
----------------------------
+---
 
 This is a GUI application which has been designed to work across all devices.
 
@@ -116,11 +118,13 @@ Using an interactive Google Map with underlying API calls enhances the visual im
 
 The main Header Nav section is set as a sticky so the nav is always available and maintains the presence of the logo.
 
----------------------------
+------------------------
 
 ## Site Navigation
+---
 
 ### Main Menu
+---
  
 Site navigation is primarily by way of a Main Menu.
 
@@ -139,7 +143,8 @@ The Nav is split into 2 main layouts:
 
 ------------------------------
 
-- Non Logged in Users
+### Non Logged in Users
+---
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677583391/app_ziguur.jpg)
 
@@ -151,7 +156,10 @@ Note the Menu only has Register and Login Options.
 
 Note the menu now has Urban Centres and Admin.
 
-- Logged in Users
+-----------------------------
+
+### Logged in Users
+---
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677582898/user_diquz2.jpg)
 
@@ -160,6 +168,7 @@ Note Admin is not available to regular staff users.
 ----------------------------------
 
 ### Search Results Page
+---
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677585347/result_tjuurr.jpg)
 
@@ -177,12 +186,17 @@ This is a Filtered List of Routes set in Card Format which is arrived at from 3 
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677585139/table_gzb7g2.jpg)
 
+------------------------------
 
 ### Single Page
+---
 
 This is a Single Route(Post_detail) page
 
-#### Timetable
+------------------------
+
+### Timetable
+---
 
 The timetable is usually presented in a 2 table presentation.
 
@@ -193,14 +207,19 @@ The Site Visitor can toggle between the 2 with the Change Direction button.
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677615623/single_txqwjj.jpg)
 
-#### Links to Cheaper Fares and The Mobile App
+------------------------------
+
+### Links to Cheaper Fares and The Mobile App
+---
 
 This allows the Site Visitor to avail of cheaper fares and use advanced Journey planning in the App.
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677587181/other_olkv9k.jpg)
 
-#### PDF and Back Button
+----------------------------
 
+### PDF and Back Button
+---
 There is a PDF button on this page to enable the Site Visitor to view or download a PDF version of the timetable.
 
 These is also a Back Button on this page to take a Site Visitor to a previous Page.
@@ -209,8 +228,10 @@ Page 1           |  Page 2
 :-----------------:|:-----------------:
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677615937/Page1_fphufa.jpg)  |  ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677615939/page2_cwlxnw.jpg)
 
+-------------------
 
-#### Comments and Likes
+### Comments and Likes
+---
 
 The Site Visitor can view Comments and Likes Count for this Route/Post
 
@@ -220,7 +241,10 @@ If the User is Logged in then they can Add Comments and Likes
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677588046/addcomment_ggwec3.jpg)
 
-### Urban Centres
+-----------------------
+
+## Urban Centres
+---
 
 This is a CRUD for the Urban Centres.
 
@@ -228,8 +252,10 @@ This is a CRUD for the Urban Centres.
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677616115/urban_xgp21l.jpg)
 
+------------------
 
-### Admin
+## Admin
+---
 
 This is the Main Admin Panel.
 
@@ -237,8 +263,10 @@ This is the Main Admin Panel.
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677616240/admin_wrvwej.jpg)
 
+----------------
 
-### Footer
+## Footer
+---
 
 This is the footer which always visible. This has links to:
 
@@ -255,7 +283,8 @@ Partners are not links so as not to take site visitors away to other sites.
 
 ----------------------------------------------------
 
-## Responsive
+# Responsive
+---
  
 This gui application is responsive using Bootstrap and looks good on different device screen sizes.
 
@@ -264,10 +293,13 @@ This gui application is responsive using Bootstrap and looks good on different d
 --------------------------------
 
 # Project Walkthrough for User Testing
+---
 
-## Admin
+## Routes (Posts)
+---
 
-### Posts
+### Admin
+---
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677595886/admin_xy6zky.jpg)
 
@@ -277,448 +309,184 @@ This gui application is responsive using Bootstrap and looks good on different d
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677621027/postpage2_qkzkyl.jpg)
 
+**For testing purposes all HTML code for the Timetable in Post Content and other data can be taken from 
 
-
-The Timetables sheet contains the timetable information for all routes. There is a worksheet(tab) for every route. These worksheets(tabs) contain a cross section of timetable variations and types.
-
-### html_table_builder sheet
-
-[Open the html_table_builder on Screen 2](https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit#gid=1730694308) 
-
-![](assets/images/screen2.webp)
-
-<mark>The html_builder_sheet has been pre populated with some routes for walkthrough convenience</mark>
-
-<mark>Typically the initial status of this sheet is to only contain 1 worksheet(tab) called Rules</mark>
-
-#### Copy & Paste
-
-Using **1120** as an example
-
-Goto **Timetables** sheet on Screen 1
-
-![](assets/images/1120.webp)
-
-Select all active cells
-
-![](assets/images/1120copy.webp)
-
-Then Ctrl + C to **Copy**
-
-Goto **html_table_builder** sheet on Screen 2
-
-Click + to create a new worksheet
-
-![](assets/images/addsheet.webp)
-
-Right Click on the newly created worksheet(tab) titled Sheet?? and Rename the Worksheet(tab) to 1120.
-
-Do not rename the Sheet title itself
-
-Yes Rename            |  No this is incorrect
-:-----------------:|:-----------------:
-![](assets/images/rename1120.webp)  |  ![](assets/images/donot.webp)
-
-Select **Cell A1** and then types Ctrl + V to **Paste**
-
-Cell A1            |  Paste
-:-----------------:|:-----------------:
-![](assets/images/1120cell.webp)  |  ![](assets/images/1120paste.webp)
-
-<mark>The user can setup as many worksheets as they wish by repeating this process, but typically there would be only a few timetables requiring publishing at any given time</mark> 
-
-<mark>Now the **html_table_builder** sheet has been setup for Publishing</mark>
-
-Now go ahead and Run the Application with the instructions below.
-
--------------------------------- 
-
-## Python Application
-
-### Login
-
-<mark>Remember open all links in a new tab</mark>
-
-[Open the App on Screen 1](https://html-table-builder.herokuapp.com/)
-
-![](assets/images/herokuapp.webp)
-
-The initial interaction with the user is a simple login like this:
-
-Please enter your username: admin
-
-Please enter your password: sesame
-
-The default username is: admin
-The default password is: sesame
-
-### Main Menu
-
-Once logged in the user is presented with a Main Menu:
-
-![](assets/images/herokuinterface.webp)
-
-#### R. Run HTML Automation
-
-HTML Automation loops runs through all the worksheets in html_table_builder Sheet.
-
-Select R to Run HTML Automation           |  Type yes to proceed
-:-----------------:|:-----------------:
-![](assets/images/runhtml.webp)  |  ![](assets/images/htmlran.webp)
-
-Then the application clears the console and returns to the main menu after 20 seconds.
-This delay gives the user time to read the instructions.
-
-### html_table_builder sheet
-
-[View the html_table_builder on Screen 2](https://docs.google.com/spreadsheets/d/1BBsQqCY6lh6nIc1l2HFDc7YwyWFzkEoGZ5WqTOfcxNc/edit#gid=1730694308) 
-
-Notice that we now an equivalent worksheet(tab) with a HTML Prefix for every
-Route Number worksheet(tab) 
-
-![](assets/images/1120again.webp)
-
-In Worksheet **HTML 1120** next to **fx** where it says **figure id=swappera class="wp-block-table" Click to highlight**
-
-<mark>This is the actual cell content of A1</mark>
-
-**CTRL + A** to Select All
-
-![](assets/images/1120selectall.webp)
-
-**CTRL + C** to Copy and now the contents of Cell A1 is now in the clipboard.
-
-<mark>Now we have our correctly formatted html table complete with all the necessary html tags</mark>
-
-## Check Our Result
-
-<mark>Remember open all links in a new tab</mark>
-
-[To check what our HTML looks like Open jsFiddle on Screen 2](https://jsfiddle.net/)
-
-![](assets/images/fiddle.webp)
- 
-### jsFiddle HTML
-
-In the HTML Section paste in the html we just copied.
-
-**CTRL + V** to Paste
-
-![](assets/images/fiddlehtml.webp)
-
-### jsFiddle CSS
-
-Now Copy and Paste the CSS code below into the CSS section of Fiddle
-
-<pre>
-table {
-  font-family: 'Signika', sans-serif;
-  margin-bottom: 2.5px;
-}
-
-.wp-block-table {
-        overflow-x: auto;
-        overflow-y: auto;
-      }
-      
- .wp-block-table thead th {
-        position: sticky;
-        top: 0;
-        z-index: 5;
-      }
-
-.tabletime {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#swappera {
-    margin-bottom: 25px;
-}
-
-#swappera th {
-    background-color: #ddd;
-}
-
-#swapperb {
-    margin-bottom: 25px;
-}
-
-#swapperb th {
-    background-color: #ddd;
-}
-
-/* The Table Header th */
-.tabletime th {
-  text-align: left;
-}
-
-.tabletime th:nth-child(n + 2) {
-    text-align: center;
-}
-
-/* The Table Stripes */
-.tabletime tr:nth-child(odd) td {
-  background-color: #ffff;
-}
-
-.tabletime tr:nth-child(even) td {
-  background-color: #f2f2f2;
-}
-
-.tabletime tr:hover {
-  background-color: #ddd;
-}
-
-/* The Table Rows and Header */
-.tabletime td {
-  display: table-cell;
-  vertical-align: middle;
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
-
-/* The Table First Column Fixed No Scroll */
-.tabletime tr td:nth-child(1) {
-  position: sticky;
-  position: -webkit-sticky;
-  left: 0;
-  z-index: 1;
-  font-weight: bold;
-  text-align: left;
-}
-
-/* This sets the thickness for specific column*/
-table .thickborder {
-  border-left: 2px double 	#54595F; 
-  border-right: 2px double 	#54595F; 
-}
-
-/* This sets the thickness for specific column left only*/
-table .thickleft {
-  border-left: 2px double 	#54595F; 
-}
-
-/* This sets the thickness for specific column right only*/
-table .thickright {
-  border-right: 2px double 	#54595F; 
-}
-</pre>
-
-![](assets/images/fiddlecss.webp)
-
-### jsFiddle Run
-
-Then Click Run in Fiddle 
-
-![](assets/images/runfiddle.webp)
-
-The user can see the result and verify that it is as expected.
-
-![](assets/images/fiddlerun.webp)
-
-<mark>End of Walkthrough</mark>
+[Local Link Cork](https://locallinkcork.com/schedule/10000-quality-hotel-to-youghal/)
 
 ------------------------------------
 
-### H. Delete HTML Worksheets 
+### All Users
+---
 
-This deletes all of the worksheets(tabs) that have a HTML Prefix in the title.
+This post being published is now available to all Users:
 
-These are created when a user runs R. Run HTML Automation.
+- Visible on Home Page
 
-This is a housekeeping feature added to allow a clear out of worksheets(tabs) with HTML Prefix.
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677685822/tablepost_gjszgk.jpg)
 
-Select H to Clear HTML Worksheets            |  Type yes to proceed
-:-----------------:|:-----------------:
-![](assets/images/htmlclear.webp)  |  ![](assets/images/htmlcleared.webp)
+- Searchable on Map (Click Youghal)
 
-The user is advised that the HTML worksheets are now deleted!
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677686014/youghal_hjhppr.jpg)
 
-Then the application clears the console and returns to the main menu after 1 second.
+- Searchable on Nav Bar search (type in quality)
 
-------------------------------------
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677686014/youghal_hjhppr.jpg)
 
-### W. Delete All Worksheets
+- Route (Post Detail) Timetable is updated
 
-<mark>Important Note: When testing you should test this option last as it removes all sheets and then you have to copy and paste to populate html_table_builder for other testing</mark>
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677686328/postdetail_vckdas.jpg)
 
-This deletes all of the worksheets in html_table_builder with the exception of Rules.
+- Route (Post Detail) PDF Version button links to PDF
 
-This is a housekeeping feature that allows the user to go to a reset situation.
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677686529/pdfyoughal_djimjg.jpg)
 
-The User is advised that 'This will remove all of the worksheets other than Rules'
+-----------------------------------------
 
-The user is challenged to input yes if they wish to proceed.
+### Logged in Users
+---
 
-Select C to Clear Sheets             |  Type yes to proceed
-:-----------------:|:-----------------:
-![](assets/images/clearsheets.webp)  |  ![](assets/images/cleared.webp)
+This post being published is now available to logged in Users for Comments and Likes
 
-The user is advised that the worksheets are now deleted!
+- Route (Post Detail) is ready for Comments and Likes
 
-Then the application clears the console and returns to the main menu after 1 second.
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677686919/commentsadd_ux1nfj.jpg)
 
-### Q. Quit
+-----------------------------------------
 
-This quits from the application and clears the console.
+### Admin
+---
 
-Then the application clears the console and returns to the main menu after 1 seconds.
+Comments submitted by Logged In Users need to be Approved by Admin
 
-------------------------------------
+- Select comment to change
+- Action Approve Comments
 
-#### R. Run HTML Automation Explained
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677698140/commentapp_txlvnm.jpg)
 
-HTML Automation loops runs through all the worksheets in html_table_builder Sheet.
+------------------------------------------------------
 
-Looping through each sheet the table html code is created and written to a local text file.
+## Urban Centres
+---
 
-The table elements are gathered in 4 distinct groupings:
+### Logged in Users
+---
 
-1. Table definition html code
-2. Table header html code
-3. Table Rows html code
-4. Table footer html code
+This is a CRUD for the Urban Centres.
 
-When all elements of the table html code have been compiled the text file is then read.
+**The Urban Centres With "Show On Map" set to true appear on the Google Interactive Map**
 
-The text file contents are written back to a newly created worksheet titled with a HTML prefix and the Route number.
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677616115/urban_xgp21l.jpg)
 
-<mark>Saving the html in a txt file as well as writing it back to the worksheet expands future distribution possibilities for the created html code</mark>
+**The Map currently has a Bus Icon over Youghal**
 
-While the application is running the user is kept informed of progress with messages like this:
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687361/bus_ihyaad.jpg)
 
-'Preparing data from worksheets...' and 'Data ready to start creating HTML Table code!'
+#### Delete
+---
 
-When the application has finished running the user is advised with messages like this:
+Select Youghal in Urban Centre and Click Delete.
 
-'The program is finished executing!'
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687987/youghallist_t3finw.jpg)
 
-The user is also advised to look at the completed work on Google Sheets:
+- It has dissappeared from the Urban Centre List
 
-'Take a look at Google Sheets to view your HTML Table code.'
+- The Bus Icon has now dissappeared on the Map also
 
-The user is instructed on how to proceed with Google sheets and Wordpress:
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687678/youghalbus_sfpzw2.jpg)
 
-'Just copy the contents of Cell A1 in the HTML worksheet'
+#### Add
+---
 
-'Then Paste into matching Wordpress Schedule Post'
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687815/youghaladd_xi0030.jpg)
 
-'Always Check the Wordpress Post Result in the Browser'
+- It now appears in the Urban Centre List
 
-------------------------------------
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687987/youghallist_t3finw.jpg)
 
-# Google Sheets Rules explained
+- It now appears as a Bus Icon on the Map
 
-The Basic Rules for the Sheets are provided in the Rules worksheet(tab).
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687361/bus_ihyaad.jpg)
 
-![](assets/images/sheetblank.webp)
+#### Toggle
+---
 
-These rules do not always impact on the application or have a HTML consequence.
+Select Youghal in Urban List and Click Toggle
 
-Some of these rules are for visual purposes so the the user can see what the Timetable will look like when it is published in Wordpress.
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687987/youghallist_t3finw.jpg)
 
-### Application Specific Rules
+- The Urban Centre and slug and Latitude and Longitude have a strikethrough
+- The Show On Map is now False
 
-The rules that impact the Application are in the last column first row.
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677688281/toggle_fcvmmx.jpg)
 
-This cell will contain either of the following:
+- The Bus Icon has now dissappeared on the Map also
 
-- 1. HEADEND <mark>This is the end of Header marker for the application where there are no border instructions</mark>
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687678/youghalbus_sfpzw2.jpg)
 
-![](assets/images/noborder.webp)
+Select Youghal in Urban List and Click Toggle again
 
-- 2. Border Instructions <mark>These instructions are read by the application and also serve as an end of Header marker</mark>
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677688281/toggle_fcvmmx.jpg)
 
-Left and Right Border             |  Left Border or Right Border
-:-----------------:|:-----------------:
-![](assets/images/double.webp)  |  ![](assets/images/single.webp)
+- Strikethrough is now gone
+- The Show On Map is now True
 
-### Borders Explained
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687987/youghallist_t3finw.jpg)
 
-- A cell(column) can have a border on the left and the right. This is designated with a B.
-- A cell(column) can have a border on the Left only. This is designated with an L.
-- A cell(column) can have a border on the Right only. This is designated with an R.
+- The Bus Icon has now appeared on the Map also
 
-The user indicates where the borders are to be placed. The application picks up on this instruction.
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687361/bus_ihyaad.jpg)
 
-For example: 
+#### Edit
+---
 
-- 7B: means a border left and right on column 7
-- 7L:8R means a left border on column 7 and a right border on column 8
+Select Youghal in Urban List and Click Edit
 
-<mark>':' is the symbol used to indicate a rule break point</mark>
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677687987/youghallist_t3finw.jpg)
+
+The Edit Page appears
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677688911/edit_p5atnq.jpg)
+
+Here you can change:
+
+- Title (the slug will automatically be reset also)
+- Latitude
+- Longitude
+- Showmap tick
+
+Changing the co-ordinates will move the Bus Icon.
+
+**Any Urban Centres created or edited with co-ordinates outside of LLC area of operation will appear on the map but will not be viewable by a user as the Google Map has bounds restricting the viewing area of the map to the LLC area of operation**
+
+## Register
+---
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677697897/register_julgvd.jpg)
+
+Just select Register in Nav and then click Sign Up
+
+## Login
+---
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677697709/login_a024ya.jpg)
+
+Just select Login in Nav and then click Sign In
+
+## Logout
+---
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677689824/signout_kpevtl.jpg)
+
+Just select Logout in Nav and then click Sign Out
 
 ------------------------------------
 
 # Testing
+---
 
-## Tests carried out by me.
-
-### Google Sheets
-
-- Remove all worksheets(tabs) from html_table_builder
-    - Just like Excel, Google Sheets will not let me as there always has to be at least 1 worksheet(tab).
-- Rename Rules
-    - This is a protected sheet so Google sheets will not let me Rename.
-- Delete or edit data in Rules
-    - This is a protected sheet so Google sheets will not let me delete or edit.
-
-<mark>These tests are important as the application expects to find at least 1 worksheet(tab) called Rules</mark>
-
-### Application
-
-- W. Delete All Worksheets when there are **no** worksheets in html_table_builder (other than Rules of course).
-    - Code runs as expected and returns to Main Menu (Rules is always present anyway).
-- W. Delete All Worksheets when there **are** worksheets in html_table_builder
-    - All worksheets are cleared and returns to Main Menu (Rules is always present).
-- H. Clear HTML Worksheets when there are **no** HTML Prefix worksheets in html_table_builder (other than Rules of course).
-- H. Clear HTML Worksheets when there **are** HTML Prefix worksheets in html_table_builder
-    - HTML Prefix worksheets are removed and returns to Main Menu
-- R. Run HTML Automation when there are **no** worksheets other than Rules in html_table_builder
-    - Code runs as expected and returns to Main Menu
-- R. Run HTML Automation when there is no header row in worksheet(tab) in html_table_builder
-    - Code runs picks up there is no Header alerts the user and returns to Main Menu.
-- R. Run HTML Automation when there is  a worksheet with a title containing the word sheet in html_table_builder as opposed to the expected 3 digits
-    - Code runs picks up the bad title (all titles should begin a minimum of a 3 digit route number) alerts the user and returns to Main Menu.
-
-![](assets/images/badtitle.webp)
-
-The Run HTML automation checks for sheet validity by checking:
-
-- HTML Prefix title on worksheets are ignored.
-- Worksheet is not a blank worksheet
-- Worksheet title begins with 3 numeric digits.
-- Worksheet has a header row.
-
-The Header row is tested for:
-
-- Test with only 1 column
-- Test with Last column not having HEADEND as text value
-- Test with Last column not having Border Rules as text value
-
-The Last Column of Header Row is checked for:
-- Rules in Last Column
-        - : rule marker but invalid rules
-        - : rule marker but no rules
-        - : rule marker with column counter descending
-
-The worksheet is checked for:
-
-- Only a Header Row, No other rows.
-
-- Q. Quit
-    - The application clears the consoles and quits as expected
-
-<mark>For all menu options I also tested for when the user did not type yes, anything other than yes is trapped and then returns to main menu.</mark>
-
-### Worksheets with HTML Prefix
-
-Visual check that the html table structure is in place with closing and opening tags.
-
-Check in jsFiddle for errors and found no errors.
-
+## Tests carried out by me
+---
+ 
 ---------------------------------
 
 ## Validator Testing
@@ -735,13 +503,13 @@ The 3 warnings that are listed are apparently in relation to the docker file and
 
 ## LLC Staff Final Verification
 
-When the html code is pasted into the wordpress post, the user can a make a visual comparison in the browser to ensure the results are as expected.
+When the html code is pasted into the post content, the user can a make a visual comparison in the browser to ensure the results are as expected.
 
 The user is the designer of the timetable (within given parameters of course).
 
-Because the outcome in wordpress reflects the users Google sheet design, it is up to the user to decide if the outcome is what they planned.
+Because the outcome in post content reflects the users Google sheet design, it is up to the user to decide if the outcome is what they planned.
 
-If not, they can amend the Google Sheet and run the application again.
+If not, they can amend the HTML table code.
 
 ---------------------------------
 
