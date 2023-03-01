@@ -491,7 +491,13 @@ Just select Logout in Nav and then click Sign Out
 
 ## Validator Testing
 
-As the PEP8 validator website pep8online.com site is down, I used pycodestyle instead.
+**As the PEP8 validator website pep8online.com site is down, I used pycodestyle instead.**
+
+HTML: All pages were passed through the official https://validator.w3.org/ and no errors were found.
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677705268/htmlhome_vvn56z.jpg)
+
+
 
 run.py is clear of anything underlined in red.
 
