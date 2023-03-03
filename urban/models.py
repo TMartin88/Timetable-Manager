@@ -8,7 +8,12 @@ from .json import write_json
 
 
 class Urban(models.Model):
-    title = models.CharField(max_length=60, null=False, blank=False, unique=True)
+    title = models.CharField(
+        max_length=60,
+        null=False,
+        blank=False,
+        unique=True
+    )
     slug = models.SlugField(max_length=200, null=False, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="urban_posts"

@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views  import UrbanList
+from .views import UrbanList
 
 urlpatterns = [
     path("urban/", UrbanList.as_view(), name="urban_list"),

@@ -5,7 +5,10 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Urban)
 class UrbanAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'description', 'latitude', 'longitude', 'showmap', 'created_on', 'approved')
+    list_display = (
+        'title', 'slug', 'description', 'latitude', 'longitude',
+        'showmap', 'created_on', 'approved'
+    )
     list_filter = ('approved', 'created_on')
     search_fields = ('title', 'description')
     prepopulated_fields = {'slug': ('title',)}
