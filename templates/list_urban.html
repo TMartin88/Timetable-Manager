@@ -30,23 +30,23 @@
             {% endif %}
             <td>{{ urban.showmap }}</td>
             <td>
-              <a href="{% url 'add' %}">
-                <button class="btn btn-block btn-primary">Add</button>
+              <a href="{% url 'add' %}" aria-label="Add new urban centre">
+                <div class="btn btn-block btn-primary">Add</div>
               </a>
             </td>
             <td>
-              <a href="{% url 'edit' urban.id %}">
-                <button class="btn btn-block btn-primary">Edit</button>
+              <a href="{% url 'edit' urban.id %}" aria-label="Edit urban centre">
+                <div class="btn btn-block btn-primary">Edit</div>
               </a>
             </td>
             <td>
-              <a href="{% url 'toggle' urban.id %}">
-                <button class="btn btn-block btn-primary">Toggle</button>
+              <a href="{% url 'toggle' urban.id %}" aria-label="toggle urban centre visibility on map">
+                <div class="btn btn-block btn-primary">Toggle</div>
               </a>
             </td>
             <td>
-              <a href="{% url 'delete' urban.id %}">
-                <button class="btn btn-block btn-primary">Delete</button>
+              <a href="{% url 'delete' urban.id %}" aria-label="Delete new urban centre">
+                <div class="btn btn-block btn-primary">Delete</div>
               </a>
             </td>
           </tr>

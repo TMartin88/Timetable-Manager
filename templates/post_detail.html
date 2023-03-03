@@ -10,10 +10,10 @@
       </div>
       <div class="card-title text-center">
         {% if post.fare_calculator %}
-        <button class="btn btn-block btn-primary">Cash Fare Calculator</button>
+        <button class="btn btn-block btn-primary" aria-label="Open cash fare calculator">Cash Fare Calculator</button>
         {% endif %}
         {% if post.change_direction %}
-        <button class="btn btn-block btn-primary" id="my_Direction">Change Direction</button>
+        <button class="btn btn-block btn-primary" id="my_Direction" aria-label="Change direction">Change Direction</button>
         {% endif %}
       </div>
       <div class="card-body text-center">
@@ -21,10 +21,10 @@
       </div>
       <div class="card-title text-center">
         {% if post.fare_calculator %}
-        <button class="btn btn-block btn-primary">Cash Fare Calculator</button>
+        <button class="btn btn-block btn-primary" aria-label="Open cash fare calculator">Cash Fare Calculator</button>
         {% endif %}
         {% if post.change_direction %}
-        <button class="btn btn-block btn-primary" id="my_Direction2">Change Direction</button>
+        <button class="btn btn-block btn-primary" id="my_Direction2" aria-label="Change direction">Change Direction</button>
         {% endif %}
       </div>
     </div>
@@ -33,8 +33,8 @@
   <div class="row">
     <div class="col-sm-12 text-center">
       <p>Cheaper Fares May Be Available via:</p>
-      <p><a href="{{ post.leap_link }}" target="_blank">Leap Card</a> | <a href="{{ post.go_app_link }}"
-          target="_blank">TFI GO APP</a></p>
+      <p><a href="{{ post.leap_link }}" target="_blank" aria-label="Leap Card link">Leap Card</a> | <a href="{{ post.go_app_link }}"
+          target="_blank" aria-label="TFI GO APP link">TFI GO APP</a></p>
     </div>
   </div>
   {% endif %}
@@ -45,10 +45,10 @@
   </div>
   <div class="row text-center">
     <div class="col-sm-6 gy-5">
-      <a href=" {{ post.timetable_pdf_url }}" target="_blank" class="btn btn-block btn-secondary">PDF Version</a>
+      <a href=" {{ post.timetable_pdf_url }}" target="_blank" class="btn btn-block btn-secondary" aria-label="view or download a pdf version of the timetable">PDF Version</a>
     </div>
     <div class="col-sm-6 gy-5">
-      <button class="btn btn-block btn-secondary" onclick="history.back()">Back</button>
+      <button class="btn btn-block btn-secondary" onclick="history.back()" aria-label="go back to previous page">Back</button>
     </div>
   </div>
 </div>
@@ -68,14 +68,14 @@
           {% csrf_token %}
           {% if liked %}
           <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-              class="fas fa-heart"></i></button>
+              class="fas fa-heart" alt="Like icon" aria-label="Like"></i></button>
           {% else %}
           <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-              class="far fa-heart"></i></button>
+              class="far fa-heart" alt="Like icon" aria-label="Like"></i></button>
           {% endif %}
         </form>
         {% else %}
-        <span class="text-secondary"><i class="far fa-heart"></i></span>
+        <span class="text-secondary"><i class="far fa-heart" alt="Like icon" aria-label="Like"></i></span>
         {% endif %}
         <!-- The number of likes goes before the closing strong tag -->
         <span class="text-secondary">{{ post.number_of_likes }} </span>
@@ -83,7 +83,7 @@
     </div>
     <div class="col-1">
       {% with comments.count as total_comments %}
-      <strong class="text-secondary"><i class="far fa-comments"></i>
+      <strong class="text-secondary"><i class="far fa-comments" alt="Comment icon" aria-label="Comment"></i>
         <!-- Our total_comments variable goes before the closing strong tag -->
         {{ total_comments }}</strong>
       {% endwith %}
@@ -131,7 +131,7 @@
         <form method="post" style="margin-top: 1.3em;">
           {{ comment_form | crispy }}
           {% csrf_token %}
-          <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+          <button type="submit" class="btn btn-signup btn-lg" aria-label="submit the comment form">Submit</button>
         </form>
         {% endif %}
         {% endif %}

@@ -27,6 +27,23 @@ select {
   font-family: 'Signika', sans-serif;
 }
 
+.skip-to-main-content-link {
+  z-index: 999;
+  position: fixed;
+  top: -50px;
+  left: 15px;
+  opacity: 0;
+}
+
+.skip-to-main-content-link:focus {
+  position: relative;
+  top: 0;
+  outline: none;
+  padding: 0 5px;
+  box-shadow: 0 0 2px 2px rgba(0,0,0,0.3);
+  opacity: 1;
+}
+
 .navbar-nav {
   margin-left: 50px;
 }

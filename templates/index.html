@@ -21,7 +21,7 @@
     <tbody id="myTable">
       {% for post in post_list %}
       <tr>
-        <td><a href="{% url 'post_detail' post.slug  %}" class="post-link">
+        <td><a href="{% url 'post_detail' post.slug  %}" class="post-link" aria-label="Read more about {{ post.title }}">
             {{ post.title }}
           </a></td>
         <td>{{ post.active_days }}</td>

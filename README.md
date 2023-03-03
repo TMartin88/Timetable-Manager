@@ -493,9 +493,45 @@ Just select Logout in Nav and then click Sign Out
 
 **As the PEP8 validator website pep8online.com site is down, I used pycodestyle instead.**
 
-HTML: All pages were passed through the official https://validator.w3.org/ and no errors were found.
+- HTML:             All pages were passed through the official https://validator.w3.org/ and no errors were found.
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677705268/htmlhome_vvn56z.jpg)
+
+The Default Django Admin Panel does generate this warning:
+
+Consider avoiding viewport values that prevent users from resizing documents.
+
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+As this has no negative impact on the app I am ignoring this.
+
+- CSS:              All pages were passed through the official https://jigsaw.w3.org/css-validator/ and no errors were found.
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677749645/csstest_mtpvhd.jpg)
+
+
+
+
+
+- Accessibility:    By running the site pages through Lighthouse in Inspect on Chrome I got the following results:
+
+index desktop                |  index mobile
+:-----------------:|:-----------------:
+![](assets/images/indexdesktop.webp)  |  ![](assets/images/indexmobile.webp)
+
+trails desktop               |  trails mobile
+:-----------------:|:-----------------:
+![](assets/images/trailsdesktop.webp)  |  ![](assets/images/trailsmobile.webp)
+
+gallery desktop               |  gallery mobile
+:-----------------:|:-----------------:
+![](assets/images/gallerydesktop.webp)  |  ![](assets/images/gallerymobile.webp)
+
+subscribe desktop               |  subscribe mobile
+:-----------------:|:-----------------:
+![](assets/images/subscribedesktop.webp)  |  ![](assets/images/subscribemobile.webp)
+
+----
 
 
 
