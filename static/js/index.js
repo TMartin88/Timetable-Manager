@@ -239,13 +239,11 @@ if (document.querySelector(".post-detail-page")) {
   });
 }
 
-let $;
-
-$(document).ready(function () {
-  $("#myInput").on("keyup", function () {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function () {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+jQuery(document).ready(function() {
+  jQuery("#myInput").on("keyup", function() {
+    var value = jQuery(this).val().toLowerCase();
+    jQuery("#myTable tr").filter(function() {
+      jQuery(this).toggle(jQuery(this).text().toLowerCase().indexOf(value) > -1);
     });
   });
 });
