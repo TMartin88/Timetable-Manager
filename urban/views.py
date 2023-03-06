@@ -5,8 +5,10 @@ from .forms import UrbanForm
 from django.utils.text import slugify
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@method_decorator(login_required, name='dispatch')
 class UrbanList(generic.ListView):
     model = Urban
     template_name = 'list_urban.html'
@@ -15,6 +17,7 @@ class UrbanList(generic.ListView):
     paginate_by = 10
 
 
+@login_required
 def add_urban(request):
     if request.method == 'POST':
         form = UrbanForm(request.POST, request=request)
