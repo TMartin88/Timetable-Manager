@@ -641,7 +641,7 @@ JSHint.com
 **google declaration is part of Google Maps API and to satisfy JSHint it is set to false**
 **jQuery declaration is external and to satisfy JSHint it is set to false**
 
-![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677860234/jshint_oryrfp.jpg)
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1678135372/jshint_yiyvjj.jpg)
 
 ----
 
