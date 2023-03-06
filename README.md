@@ -395,6 +395,32 @@ Comments submitted by Logged In Users need to be Approved by Admin
 ## Urban Centres
 ---
 
+### Signals and Model
+---
+
+Initially the map icons were populated from a JSON file. 
+
+This was by way of signals.py whuch amended the json file to match urban model.
+
+I did this because I was initially struggling with populating icons straight from the urban Model.
+
+Unfortunately when deployed to Heroku this created an error as the json file was unavailable or impossible to read.
+
+Because this may be some Heroku particular peculiarity I opted to retain signals.py.
+
+I had to go back and research creating an option for the map icons to be read straight from the urban model.
+
+Having successfully managed that now the Map icons are populated directly from Urban Model.
+
+I have left the signals code available in case I need JSON file for distribution in further developments.
+
+In javascript file I have hard coded this option:
+
+```
+// Set this flag to true if you want to fetch the data from the Django model
+  const fromModel = true;
+```
+
 ### Logged in Users
 ---
 
@@ -514,6 +540,26 @@ Just select Logout in Nav and then click Sign Out
 
 # Testing
 ---
+
+## Urban CRUD Testing
+---
+
+Try to spoof the Urban CRUD while not logged in on other Browser
+
+### List
+---
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1678107369/spooflist_wejupz.jpg)
+
+### Add
+---
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1678107268/spoofadd_evus0n.jpg)
+
+### Edit
+---
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1678107067/spoofedit_iymef5.jpg)
 
 ## Validator Testing
 ---
