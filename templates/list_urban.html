@@ -2,6 +2,14 @@
 
 {% block content %}
 <div class="container-fluid mt-3" id="urban-list">
+  <form method="GET">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" name="q" placeholder="Search...">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
   <h1>Urban List</h1>
   <figure id="swappera" class="wp-block-table">
     <div style="overflow-x: auto;">

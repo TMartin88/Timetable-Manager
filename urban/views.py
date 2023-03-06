@@ -6,6 +6,7 @@ from django.utils.text import slugify
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.db.models import Q
 
 
 @method_decorator(login_required, name='dispatch')
@@ -15,6 +16,16 @@ class UrbanList(generic.ListView):
     context_object_name = 'urbans'
     ordering = ['title']
     paginate_by = 10
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Urban.objects.filter(
+                Q(title__icontains=query) |
+                Q(slug__icontains=query)
+            ).order_by('title')
+        else:
+            return Urban.objects.all().order_by('title')
 
 
 @login_required
