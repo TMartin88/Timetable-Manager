@@ -1,10 +1,9 @@
 # Schedule Manager <img align="right" width="75" height="75" src="static/favicon.ico">
 
-
-**LLC** denotes Local Link Cork
-**Staff** denotes LLC Route & Timetable Management Staff
-**Commuters** denotes people travelling or wishing to travel on Routes
-**Routes** are often known as Services or Schedules.
+- **LLC** denotes Local Link Cork
+- **Staff** denotes LLC Route & Timetable Management Staff
+- **Commuters** denotes people travelling or wishing to travel on Routes
+- **Routes** are often known as Services or Schedules.
 
 ---------------------------
 
@@ -17,21 +16,21 @@ These staff members typically have no coding abilities whatsoever.
 
 This application is designed to enable staff to setup Routes and Urban Centres.
 
-This application is an assist for LLC staff engaged in Timetable Management to easily publish timetable revisions for Public viewing.   
+This application is an assist for LLC staff engaged in Timetable Management to easily publish timetable revisions for public viewing.   
 
 Schedule Manager is useful by allowing LLC staff to manipulate and design timetables to best display the data to the public.
 
-Schedule Manager is particularly useful for the Public as it feature dynamic search so commuters can easily find the Route that suit their needs.
+Schedule Manager is particularly useful for the public as it features dynamic search so commuters can easily find the Route that suits their needs.
 
 Schedule Manager has 4 main apps:
 
-- Maps (maps)
+- Maps (maps):
     This App sets up the data from model urban to be displayed as icons on Google Maps.
-- Schedules (schedules)
+- Schedules (schedules):
     This is the App for Route Management using Posts where each Post is a Route.
-- Urban (urban)
+- Urban (urban):
     This is the App for Urban Centre Management. Each Urban centre is an icon on the map.
-- User Search (user_search)
+- User Search (user_search):
     This is the App for the dynamic filter search on the Home Page and the Search in the Nav Bar.
 
 ------------------------------------
@@ -46,12 +45,12 @@ Schedule Manager has 4 main apps:
 # Motivation
 ---
 
-- Working part time with LLC and in association with Steve Ellis Operations Co-Ordinator of LLC we can identify that we need to improve Timetable Management.
+- Working part time with LLC and in association with Steve Ellis Operations Co-Ordinator of LLC, we can identify that we need to improve Timetable Management.
 - These Timetables need to be controlled and managed.
 - Staff prefer to work with Excel for Timetables edits.
 - These Timetables need to be visible to the public.
 - Wordpress was initially the preferred platform to publish timetables for public viewing but it is restricitive.
-- So developing something in a framework we can control is more suitable.
+- So developing something in a framework, we can control is more suitable.
 - Django allows us to deploy to the Cloud which is a fast scaleable environment.
 
 ------------------------------------
@@ -59,46 +58,74 @@ Schedule Manager has 4 main apps:
 # GDPR and Timetable Data
 ---
 
-- Thanks to Steve Ellis Operations Co-Ordinator of LLC for permission to use timetable data.
+- Thanks to Steve Ellis Operations Co-Ordinator of LLC for permission to use Timetable data.
 - The Timetable data is already in the public domain.
 
 ------------------------------------
 
-# User Stories
+# Staff Requirements
 ---
 
 - Staff Users who have no programming skills need to be able to publish LLC routes and timetables so they are available to the public.
     - This application allows them to work without HTML or CSS skills, as they have an application that makes the html for them, then using copy and paste skills they can publish to a post. The styling of the timetable is managed within the template design and style.css
+- Staff Users need to provide additional information in relation to routes.
+    - The additional fields in Post model allow for this.
+
     - To assist this we created a seperate Python App to take Excel timetables loaded to Google Sheets and convert them to properly formatted HTML tables:
         - https://timetable-sheets.herokuapp.com
         - https://github.com/TMartin88/SheetTable
 
 - **We will bring that Python Project into this project in the next phase of development.**
 
-- Staff Users need to be able to change Timetable data on a regular basis and get the results published without delay.
-    - The level of automation here minimises the time delay and allow the user to quickly publish to Timetable Manager.
-- Staff Users wish to avoid steep learning curves by being introduced to new systems.
-    - The Copy and Paste method to publish to the post content is a concept they are already familiar with.
-- Staff Users need to be able to manage icons on the Google Map.
-    - The Urban CRUD works well here. It is a simple interface so staff users canc ontrol where icons appear.
-- Staff Users need to provide additional information in relation to routes.
-    - The additional fields in Post model allow for this.
-- Staff users need to be able to provide PDF versiosn of the timetables.
-    - PDFs stires in LLC Dropbox are available for Commuters via the PDF button.
+# User Stories
+---
+
+## Commuters
+---
 
 - Commuters need to be able plan trips around LLC routes.
     - Because all routes and associated timetables are published and maintained the commuter has up to date information.
 - Commuters need to be able to view more than 1 route at a time to make comparisons of suitability.
     - The Routes are listed and can filtered to by a commuter to match their needs.
+- Commuters need to be able to Comment on Routes to share their travel experience. 
+    - The Comment functionality allows for this.
+- Commuters need to be able to give a nod of approval or otherwise. 
+    - The Like functionality allows for this.
 - Commuters need an interactive way of searching for timetables.
-    - the Google Map allows the commuter to click an icon for an urban centre. This negates the need for using the keyboard.
+    - The Google Map allows the commuter to click an icon for an urban centre. This negates the need for using the keyboard.
 - Commuters need to be able to refine search results.
     - The dynamic search table on the homepage allows for filtering by dates and times etc.
-    - The search in the nav bar allows for a search for timetable data including stops etc.
+    - The search in the nav bar allows for a search for timetable data including stops etc.   
 - Commuter need to be able to view timetables on Mobile.
     - The way the table is setup for scrolling x and y allows the commuter to easily navigate an individual timetable.
-- Commuters need to be able to Comment on Routes and click Likes etc. 
-    - The Comment Like functionality allows for this.
+- Commuter need to be able to switch timetables views from inbound to outbound.
+    - The change direction button allows for this.
+
+## LLC
+---
+
+- Staff Users need to be able to change Timetable data on a regular basis and get the results published without delay.
+    - The level of automation here minimises the time delay and allow the user to quickly publish to Timetable Manager.
+- Bus Company needs to ensure the presentation of timetable data is consistent with the Brand.
+    - Fonts Logos and Colour styles match the brand. 
+- Bus Company needs to control access to schedule maintenance.
+    - A superuser account is required to access admin panel.
+- Bus Company needs to control access to Comments and Likes.
+    - A user account is required to access this functionality.
+- Bus Company needs to allow for Schedules to be input as Draft and not viewable by the public.
+    - The post approval functionality manages this.
+- Bus Company needs to ensure all Comments are moderated.
+    - The comment approval functionality manages this.
+- Bus Company needs a CRUD to manage all schedules.
+    - The Admin Panel functionality manages this.
+- Bus Company needs a implement pagination on the front end for ease of navigation.
+    - Pagination is applied where applicable.
+- Staff Users need to be able to manage icons on the Google Map.
+    - The Urban CRUD works well here. It is a simple interface so staff users canc ontrol where icons appear.
+- Staff users need to be able to provide PDF version of the timetables.
+    - PDFs in LLC Dropbox are available for Commuters via the PDF button.
+- Bus Company needs a restrict urban centre icons to the applicable operating area of the LLC.
+    - Bounds are set on Map scrolling.
 
 --------------------------------
 
@@ -212,7 +239,7 @@ The Site Visitor can toggle between the 2 with the Change Direction button.
 ### Links to Cheaper Fares and The Mobile App
 ---
 
-This allows the Site Visitor to avail of cheaper fares and use advanced Journey planning in the App.
+This allows the Site Visitor to avail of cheaper fares and use advanced Journey Planning in the App.
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677587181/other_olkv9k.jpg)
 
@@ -248,7 +275,7 @@ If the User is Logged in then they can Add Comments and Likes
 
 This is a CRUD for the Urban Centres.
 
-**The Urban Centres With "Show On Map" set to true appear on the Google Interactive Map**
+**The Urban Centres with "Show On Map" set to true appear on the Google Interactive Map**
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677616115/urban_xgp21l.jpg)
 
@@ -259,7 +286,7 @@ This is a CRUD for the Urban Centres.
 
 This is the Main Admin Panel.
 
-**The header and The Footer are not visible on this page as it is a Back End utility**
+**The Header and the Footer are not visible on this page as it is a Back End utility**
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677616240/admin_wrvwej.jpg)
 
@@ -286,13 +313,13 @@ Partners are not links so as not to take site visitors away to other sites.
 # Responsive
 ---
  
-This gui application is responsive using Bootstrap and looks good on different device screen sizes.
+This GUI application is responsive using Bootstrap and looks good on different device screen sizes.
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677616512/responsive_swgo3h.jpg)
 
 --------------------------------
 
-# Project Walkthrough for User Testing
+# Project Walkthrough and Manual Testing
 ---
 
 ## Routes (Posts)
@@ -481,17 +508,15 @@ Just select Logout in Nav and then click Sign Out
 
 ------------------------------------
 
+**In Chrome Developer Tools, the Console had no errors**
+
+------------------------------------
+
 # Testing
 ---
 
-## Tests carried out by me
----
- 
----------------------------------
-
 ## Validator Testing
-
-**As the PEP8 validator website pep8online.com site is down, I used pycodestyle instead.**
+---
 
 - HTML:             All pages were passed through the official https://validator.w3.org/ and no errors were found.
 
@@ -509,41 +534,72 @@ As this has no negative impact on the app I am ignoring this.
 
 ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677749645/csstest_mtpvhd.jpg)
 
-
-
-
+## Lighthouse Testing
+---
 
 - Accessibility:    By running the site pages through Lighthouse in Inspect on Chrome I got the following results:
 
-index desktop                |  index mobile
+home desktop                |  home mobile
 :-----------------:|:-----------------:
-![](assets/images/indexdesktop.webp)  |  ![](assets/images/indexmobile.webp)
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677842817/homedesktop_w7v8uk.jpg)  |  ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677843042/homemobile_b04jcf.jpg)
 
-trails desktop               |  trails mobile
+**The Performance on Mobile is not good. But Google Maps even though slowing things down is an essential part of the design**
+
+search results desktop               |  search results mobile
 :-----------------:|:-----------------:
-![](assets/images/trailsdesktop.webp)  |  ![](assets/images/trailsmobile.webp)
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677843239/searchdesktop_kqolyw.jpg)  |  ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677843392/searchmobile_tjgudt.jpg)
 
-gallery desktop               |  gallery mobile
+**Performance could be better. Images are being fed from Cloudinary which seems to be a bottleneck**
+
+post detail desktop               |  post detail mobile
 :-----------------:|:-----------------:
-![](assets/images/gallerydesktop.webp)  |  ![](assets/images/gallerymobile.webp)
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677843666/postdetaildesktop_mf1pv8.jpg)  |  ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677843738/postdetailmobile_o2moac.jpg)
 
-subscribe desktop               |  subscribe mobile
+urban desktop               |  urban mobile
 :-----------------:|:-----------------:
-![](assets/images/subscribedesktop.webp)  |  ![](assets/images/subscribemobile.webp)
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677844413/urbandesktop_bhwhft.jpg)  |  ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677844049/urbanmobile_cn5zak.jpg)
 
-----
+admin desktop               |  admin mobile
+:-----------------:|:-----------------:
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677844158/admindesktop_gtbfaf.jpg)  |  ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677844248/adminmobile_xwymtn.jpg)
 
+**Scores are not great but this is Django admin panel**
 
-
-run.py is clear of anything underlined in red.
+## Pycodestyle Testing
+---
 
 The 3 warnings that are listed are apparently in relation to the docker file and have nothing to do with the code in run.py and so can be ignored.
 
-![](assets/images/pep8.webp)
+**All files are clear of Problems apart from settings.py**
 
----------------------------------
+## pep8 Testing
+---
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1678014870/pep8_bd4uzz.jpg)
+
+**All files are clear of Problems apart from settings.py**
+
+3 of the offending lines part of Django core.
+1 offending line is Cloudinary.
+
+## Javascript Testing
+---
+
+JSHint.com
+
+```
+    /*jshint esversion: 6 */
+    /* global google: false */
+```
+
+**google declaration is part of Google Maps API and to satisfy JSHint it is set to false**
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1677860234/jshint_oryrfp.jpg)
+
+----
 
 ## LLC Staff Final Verification
+---
 
 When the html code is pasted into the post content, the user can a make a visual comparison in the browser to ensure the results are as expected.
 
@@ -556,129 +612,185 @@ If not, they can amend the HTML table code.
 ---------------------------------
 
 ## Development Transition
+---
 
-### Initial Workflow Concept
+### Initial Workflow and Design Concept
+---
 
-![](assets/images/workflow.webp)
+This concept project has been developed by me in Wordpress and is live at:
+
+[Local Link Cork](https://www.locallinkcork.ie/) 
+
+Using Elementor as a Site Builder.
+
+Wordpress and particularly Elementor are restrictive and sometimes do not play nice.
+The site is slow in performance and requires too many work arounds.
+
+The workflow to get a revised Timetable from Excel to Wordpress is too convoluted and messy.
+
+So we are now moving to Django.
+
+Automation is now much easier and full control of the workflow is possible.
 
 -----------------------------------
 
-### Table Design in Wordpress Post
+### Planned Final Workflow and Design
+---
 
-Example 253
+This Project is not the final step but it is a major step forward.
 
-HTML Design                         |  Wordpress Blocks Basic             
-:----------------------------------:|:-----------------------------------:
-![](assets/images/wpresshtml.webp)  | ![](assets/images/wpressbasic.webp) 
+The ultimate goal will be to take a revised or new Timetable directly from Excel and Publish.
+
+### Following from Wordpress Project and HTML Builder Project
+---
+
+Wordpress          |  Github
+:-----------------:|:-----------------:
+[Local Link Cork](https://www.locallinkcork.ie/)  |  [Github](https://github.com/TMartin88/htmltablebuilder)
+
+Wordpress Post Classic Block           |  HTML View
+:-----------------:|:-----------------:
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1678050388/classic_j3tdmz.jpg)  |  ![](https://res.cloudinary.com/dxbarumnj/image/upload/v1678050479/classichtml_vthrz7.jpg)
+
+### Concept Design from Brainstorming
+---
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1678051947/conceptdesign_w5nnf8.jpg)
+
+### Final Table Design in ElephantSQL
+---
+
+![](https://res.cloudinary.com/dxbarumnj/image/upload/v1678048605/Schedule_Manager_Database_Diagram_crow_s_foot_hikixk.jpg)
+
 ---------------------------------
  
 ## Bug Fixes
- 
+---
+
 ### Solved Bugs
+---
 
-- October 12th 2022 Looping through header error colspan count wrong
-    - Fix d5f826cfade97fa0f427bcf71ad71f15b8e42d36 reverse header data
+- January 28th 2023 Summernote Runserver Errors
+    - Fix 65443ec74bc87004ec1252b65d4872434b8aa062 remove references
 
-- October 12th 2022 Closing row <\tr> missing on th heading
-    - Fix fa901e13615e548db4457b6e1cfcaa628981f863 tag is now in place.
+- January 29th 2023 Summernote Runserver Errors
+    - Fix 427f1f4efc14aa27a00e0c6da97b062b5a929ea9 summernote references sorted
 
-- October 13th 2022 border rules not working correctly
-    - Fix 23167325d5e54eea7128b125e2041a8f5337fa16 improved function to manage rules.
+- January 30th 2023 AllAuth not working
+    - Fix 5f7ff1d767fedea494db5070f50f16477b9c1336 all auth sorted
 
-- October 15th 2022 sheet errors problem
-    - Fix 62b6fee4d708f5946810424a4479d533b0a040e3 create function to validate sheets.
+- February 9th 2023 Swap Direction causing errors in developer tools console
+    - Fix e20790a7221381dd3ce90cd86015e0dbf3e415a9 only applies now to post-detail page
 
-- October 28th 2022 login error on heroku
-    - Fix 37a3cb2f048fbd6cb6159aa83a503e6d317b3311 remove user csv file from gitignore.
+- February 20th 2023 Registration not working
+    - Fix 8bf2e771a6f096549d68ad277616932c583871a3 disable email verification in settings
+
+- March 1st 2023 Double quotes typo in base.html
+    - Fix 91d95f5fbfc7c5da579a931a4f5f9951cf6ea02e syntax fixed
+
+- March 1st 2023 Search results page incorrect use of alt tags
+    - Fix 08d271a6f9c14289d7298a53b78c3291cbed68ae syntax fixed
+
+- March 3rd 2023 Search results page incorrect use of aria labels
+    - Fix c8cac1283adf114aa23fed77ea246446faba84eb labels fixed
+
+- March 3rd 2023 post_detail page incorrect use of alt tags
+    - Fix 9ee5350e801fa97e92a5c105d1d3ccb92e33719f tags fixed
+
+- March 3rd 2023 post_detail page aria label error
+    - Fix dbc888e4fae2cac66c0b4f9acf489b944aecf6a8 error fixed
 
 ### Unfixed Bugs
+---
 
-- If the html_table_builder sheet does not exist or is not found the application will crash with a json response back from Google sheets. There is no error trap in place for this.
-
-- The users.csv contains the login information. For a demo this is fine for it to be exposed. But in a real world situation this data would be called from a secured location like a database.
+- No known unfixed bugs.
 
 ----
 
 ## Deployment
 
 ### Deployment to Heroku
+---
 
 The site is deployed to Heroku. 
 
-- Ensure pprint is not in place 
-- Amend Input to include a new line \n
-- Populate Requirements with pip3 freeze > requirements.txt
-- Sign up for Heroku Account
-- Set role as student
-- Create new app in heroku
-- Create a config var in settings with a Key of CREDS and with creds.json file content as the Value
-- Add Buildpack of Python
-- Add Buildpack of Node.js
-- In Deploy section and select Github
-- Select Repository and Link to heroku app
-- Manual Deploy
+#### Initial Deployment
+---
+
+In Heroku
+
+- Sign up for Heroku Account or Login
+- Create New App in Heroku
+- Use a unique App name that does not already exist.
+- Select Region.
+- Create App.
+- Postgres.
+- In Settings Reveal Config Vars
+    - Key: CLOUDINARY_URL Value: "cloudinary url"
+    - Key: DATABASE_URL Value: "postgres url"
+    - Key: Port Value: 8000
+    - Key: SECRET_KEY Value: *******
+    - Key: DISABLE_COLLECTSTATIC Value: 1
+- Manual Deploy (Select Github as deployment method)
+- Search for Django Repo
+- Deploy Branch
+- Check Build Log for errrors.
 - Run App
-- Test for errors
 
-![](assets/images/heroku.webp)
+In Gitpod
 
-Please click this link to see it in Heroku
+- Create Procfile
+    - Gunicorn
 
-https://html-table-builder.herokuapp.com/
+#### Final Deployment
+---
 
+In Heroku
+- Login to Heroku Account
+- In Settings Reveal Config Vars Remove the following:
+    - Key: DISABLE_COLLECTSTATIC Value: 1
+- Enable Automatic Deploys
 
-### Live Deployment for LLC
+In Gitpod
 
-This project has been copied to another Github Repository.
+- In Settings ensure Debug = False
+- Ensure all is Pushed and check Git Status
 
-<mark>I am further developing the application for LLC beyond the scope of this project within the new repository</mark>
-
----------------------------------
+[Please click this link to see it in Heroku](https://schedulemanager.herokuapp.com/)
 
 ## Future Features
+---
 
-- To build a pdf version of the timetable.
-- To read the google sheet formatting instead of relying on border rules.
-- To error trap Google sheet connection failures
-- To use something like Zapier Automation to update Wordpress post with table.
+- To bring Fares Calculation https://github.com/TMartin88/farescalculator into this Project
+- To bring HTML Builder https://github.com/TMartin88/htmltablebuilder into this project
+- To remove the Copy and Paste of Timetable to Post content and write it in by code instead.
+- To fully automate the workflow of Timetable updates or additions to Live Published Online.
 
 ---------------------------------
 
 ## Performance Improvements
+---
 
-- Increased Automation
+- Lighthouse to bring all site ratings close to 100% on all fronts
+    - Google Maps
+    - Cloudinary Images
 
 ---------------------------------
  
 ## Credits
+---
 
-- Credit to thispointer for a handy fumction to write multiple lines to a text file
-
-https://thispointer.com/how-to-append-text-or-lines-to-a-file-in-python/
-
-Credit to pynative for code ieas on deleting all the files in a directory
-
-https://pynative.com/python-delete-files-and-directories/#h-example-remove-file-in-python
-
-Credit to pythonpool for code ideas on looping through files in a directory.
-
-https://www.pythonpool.com/python-loop-through-files-in-directory/
-
-Credit to Anna Greaves and Love Sandwiches for Connecting to Google Sheets idea and execution.
+- [Slug Tutorial](https://learndjango.com/tutorials/django-slug-tutorial)
+- [Full Text Search](https://testdriven.io/blog/django-search/)
+- Post Engine assistance from "I Think Therefore I Blog"
+- CRUD assistance from "Hello Django"
+- [General Problem Solving](https://www.w3schools.com/django/)
+- [Advanced Filters](https://www.w3schools.com/bootstrap4/bootstrap_filters.asp)
+- [My Earlier development in Wordpress](https://locallinkcork.com/)
+- [My Earlier experimental work with Google Maps API](https://github.com/TMartin88/dynamicmaps)
+- [Default Form to Current Logged in User](https://stackoverflow.com/questions/70559902/django)
+- [Signals for Json](https://www.geeksforgeeks.org/how-to-create-and-use-signals-in-django/)
+- [Signals for Json](https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/master/checkout/signals.py)
+- [Skip to Site Content](https://www.a11yproject.com/)
 
 ---------------------------------
-
-
-
-
-
-Credits 
-https://testdriven.io/blog/django-search/ for Basic and Full-text Search with Django and Postgres.
-I Think Therefore I Blog for the Post engine complete with likes and comments.
-https://www.w3schools.com/django/ for helpouts when I was stuck with problems.
-https://www.w3schools.com/bootstrap4/bootstrap_filters.asp for advanced filters on table.
-https://locallinkcork.com/ which is a wordpress implementation fully designed and developed by me.
-https://8000-tmartin88-dynamicmaps-u20krk5rr0r.ws-eu85.gitpod.io/ which is where I experiemented with google maps api. https://github.com/TMartin88/dynamicmaps
-https://learndjango.com/tutorials/django-slug-tutorial for assist in setting up new app.
-https://stackoverflow.com/questions/70559902/django-how-do-i-set-a-default-value-in-a-form-to-be-the-current-user
-https://www.geeksforgeeks.org/how-to-create-and-use-signals-in-django/ and https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/master/checkout/signals.py for signals to update json file from model urban.

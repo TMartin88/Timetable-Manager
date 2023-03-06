@@ -1,15 +1,15 @@
 import { MarkerClusterer } from "https://cdn.skypack.dev/@googlemaps/markerclusterer@2.0.3";
 
-let map;
 const LLC_BOUNDS = {
   north: 52.754237,
   south: 51.359833,
   west: -11.181023,
   east: -5.442101,
 };
+
 const llcCentre = { lat: 51.905797, lng: -8.952052 };
 
-let elem = document.getElementById("map");
+let contentString = "";
 
 function createCenterControl(map) {
   const controlButton = document.createElement("button");
@@ -87,7 +87,6 @@ function initMap() {
   // Create the control.
   const centerControl = createCenterControl(map);
   
-
   // Create the DIV to hold the controls.
   const busInfoDiv = document.createElement("div");
 
@@ -101,11 +100,12 @@ function initMap() {
   busInfoDiv.appendChild(busInfo);
   map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(busInfoDiv);
 
-  const infoWindow = new google.maps.InfoWindow({
-    content: "",
+  const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+      ariaLabel: "Urban Centre",
+  
   });
 
-  const labels = "";
   const image = "https://res.cloudinary.com/dxbarumnj/image/upload/v1675443108/departure_board_FILL0_wght400_GRAD0_opsz48_egf6hh.png";
 
   // Set this flag to true if you want to fetch the data from the Django model
@@ -143,15 +143,16 @@ function initMap() {
             map,
             upperCaseurl,
             icon: image,
-            title: "Click to Search Routes",
+            title: "Click here to see Services running through " + upperCaseurl,
           });
 
           // markers can only be keyboard focusable when they have click listeners
           // open info window when marker is clicked
           marker.addListener("click", () => {
+            infowindow.content = contentString;
             const form = document.createElement("form");
             form.action = "/search/search/";
-            form.method = "get"
+            form.method = "get";
 
             const input = document.createElement("input");
             input.type = "search";
@@ -167,10 +168,15 @@ function initMap() {
         });
 
         // Add a marker clusterer to manage the markers.
-        new MarkerClusterer({
-          markers,
-          map
-        });
+        function createMarkerClusterer(markers, map) {
+          return new MarkerClusterer({
+            markers,
+            map
+          });
+        }
+        
+        // Call the function to create a new MarkerClusterer and manage the markers
+        createMarkerClusterer(markers, map);
       })
       .catch(function (error) {
         console.error('Error fetching JSON file: ' + error);
@@ -182,40 +188,39 @@ function initMap() {
 
 window.initMap = initMap;
 
-if (document.querySelector(".post-detail-page")) {
-
-  function checkTableHeight() {
-    try {
-      var elmnt = document.getElementById('swappera');
-      var tableHeight = elmnt.offsetHeight;
-      var viewHeight = window.innerHeight;
-      console.log(tableHeight)
-      if (tableHeight > viewHeight) {
-        document.getElementById('swappera').style.height = "90vh";
-        document.getElementById('swapperb').style.height = "90vh";
-      }
-    } catch (error) {
-      console.error(error);
+function checkTableHeight() {
+  try {
+    var elmnt = document.getElementById('swappera');
+    var tableHeight = elmnt.offsetHeight;
+    var viewHeight = window.innerHeight;
+    if (tableHeight > viewHeight) {
+      document.getElementById('swappera').style.height = "90vh";
+      document.getElementById('swapperb').style.height = "90vh";
     }
+  } catch (error) {
+    console.error(error);
   }
+}
+
+let i = 0;
+
+function swapDiv(event, elem) {
+  const topTable = document.getElementById('swappera');
+  const bottomTable = document.getElementById('swapperb');
+  if (i % 2 == 0) {
+    bottomTable.insertAdjacentElement("afterend", topTable);
+  } else {
+    topTable.insertAdjacentElement("afterend", bottomTable);
+  }
+  i++;
+}
+
+if (document.querySelector(".post-detail-page")) {
 
   checkTableHeight();
 
   const swapper = document.getElementById('my_Direction');
   const swapper2 = document.getElementById('my_Direction2');
-
-  let i = 0
-
-  function swapDiv(event, elem) {
-    const topTable = document.getElementById('swappera');
-    const bottomTable = document.getElementById('swapperb');
-    if (i % 2 == 0) {
-      bottomTable.insertAdjacentElement("afterend", topTable);
-    } else {
-      topTable.insertAdjacentElement("afterend", bottomTable);
-    }
-    i++
-  }
 
   swapper.addEventListener("click", function (event) {
     // The user has Clicked Swap. Now swap the tables and h2 header
@@ -230,18 +235,17 @@ if (document.querySelector(".post-detail-page")) {
       swapDiv(event, swapper);
     } catch (error) {
       console.error(error);
-      // expected output: ReferenceError: nonExistentFunction is not defined
-      // Note - error messages will vary depending on browser
     }
   });
 }
+
+let $;
 
 $(document).ready(function () {
   $("#myInput").on("keyup", function () {
     var value = $(this).val().toLowerCase();
     $("#myTable tr").filter(function () {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
     });
   });
 });
-
