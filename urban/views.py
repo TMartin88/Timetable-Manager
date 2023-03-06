@@ -4,9 +4,9 @@ from .models import prepare_for_json
 from .forms import UrbanForm
 from django.utils.text import slugify
 from django.views import generic, View
+from django.contrib.auth.decorators import login_required
 
 
-@login_required
 class UrbanList(generic.ListView):
     model = Urban
     template_name = 'list_urban.html'
@@ -15,7 +15,6 @@ class UrbanList(generic.ListView):
     paginate_by = 10
 
 
-@login_required
 def add_urban(request):
     if request.method == 'POST':
         form = UrbanForm(request.POST, request=request)
@@ -47,7 +46,6 @@ def edit_urban(request, urban_id):
     return render(request, 'edit_urban.html', context)
 
 
-@login_required
 def toggle_urban(request, urban_id):
     urban = get_object_or_404(Urban, id=urban_id)
     urban.showmap = not urban.showmap
@@ -56,7 +54,6 @@ def toggle_urban(request, urban_id):
     return redirect('urban_list')
 
 
-@login_required
 def delete_urban(request, urban_id):
     urban = get_object_or_404(Urban, id=urban_id)
     urban.delete()
