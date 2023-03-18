@@ -19,5 +19,9 @@ class SearchResultsList(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         query = self.request.GET.get("q")
+        search_results = Post.objects.filter(
+             Q(slug__icontains=query) | Q(content__icontains=query)
+        )
         context["search_query"] = query
+        context["search_results_count"] = search_results.count()
         return context

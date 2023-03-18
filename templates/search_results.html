@@ -2,10 +2,14 @@
 
 {% block content %}
 
-<div class="container-fluid" id="topresults">
-    <h5>These are the matching Routes for your search for: {{ search_query }}</h5>
+<div class="container-fluid" id="topresults">   
+    {% if search_results_count == 0 %}
+        <h5>There are no matching Routes for your search for: {{ search_query }}</h5>
+    {% else %}
+        <h5>These are the matching Routes for your search for: {{ search_query }}</h5>
+    {% endif %}
     <div class="row">
-        <!-- Blog Entries Column -->
+        <!-- Blog Entries Column --> 
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for post in posts %}
